@@ -124,7 +124,8 @@ public class DiningPage {
         Assert.assertTrue(driver.getCurrentUrl().contains("/dining"), "Restaurant page not opened");
         WaitUtils.waitForElementVisible(driver, bookTableHeader);
         WaitUtils.waitForElementToBeClickable(driver, dateDropdown).click();
-        Thread.sleep(2000);
+        WaitUtils.waitForElementToBeClickable(driver, selectedDate);
+//        Thread.sleep(2000);
         String dateSelectedText = selectedDate.getText();
         WaitUtils.waitForElementToBeClickable(driver, selectedDate).click();
         WaitUtils.waitForElementToBeClickable(driver, guestsDropdown).click();
@@ -141,6 +142,7 @@ public class DiningPage {
         bookTableAndPrintSelection();
         WaitUtils.waitForElementToBeClickable(driver, dinnerSlot).click();
         String slotSelected = dinnerSlot.getText();
+        WaitUtils.waitForElementToBeClickable(driver, secondTimeSlot);
         String timeSelected = secondTimeSlot.getText();
         WaitUtils.waitForElementToBeClickable(driver, secondTimeSlot).click();
         WaitUtils.waitForElementToBeClickable(driver, regularReservation).click();

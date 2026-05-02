@@ -84,8 +84,8 @@ public class EventPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         eventsTab.click();
-        wait.until(ExpectedConditions.elementToBeClickable(filterButton));
         js.executeScript("window.scrollBy(0, 800);");
+        wait.until(ExpectedConditions.elementToBeClickable(filterButton));
         filterButton.click();
         wait.until(ExpectedConditions.elementToBeClickable(filterClick));
         filterClick.click();
@@ -105,10 +105,10 @@ public class EventPage {
     }
     public void checkboxValidation() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
         eventsTab.click();
-        wait.until(ExpectedConditions.elementToBeClickable(thisweekend));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 1000);");
+        wait.until(ExpectedConditions.elementToBeClickable(thisweekend));
         thisweekend.click();
         ScreenshotUtil.takeScreenshot(driver);
         Assert.assertTrue(

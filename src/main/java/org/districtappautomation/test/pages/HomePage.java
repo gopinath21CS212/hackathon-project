@@ -57,6 +57,7 @@ public class HomePage {
     }
 
     public void changeLocationAndValidate(String location1) throws InterruptedException {
+        Thread.sleep(4000);
         WaitUtils.waitForElementToBeClickable(driver, locationSelector).click();
         WebElement searchInput = WaitUtils.waitForElementVisible(driver, searchInputBy);
         searchInput.clear();
