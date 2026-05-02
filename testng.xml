@@ -8,6 +8,16 @@
             <class name="org.districtappautomation.test.TC0023_ValidateAllNavigatorTabOfHomePage"/>
             <class name="org.districtappautomation.test.TC0024_DisplayTrendingMoviesInYourCity"/>
             <class name="org.districtappautomation.test.TC0025_DisplayFootwearBrands"/>
+            <class name="org.districtappautomation.test.TC003_DisplayListOfEvents"/>
+            <class name="org.districtappautomation.test.TC004_DisplayListOfSports"/>
+            <class name="org.districtappautomation.test.TC005_PriceLowToHigh"/>
+            <class name="org.districtappautomation.test.TC006_ValidateCheckboxes"/>
+            <class name="org.districtappautomation.test.TC007_ValidateGenreCheckbox"/>
+            <class name="org.districtappautomation.test.TC008_DisplayRestaurantDetails"/>
+            <class name="org.districtappautomation.test.TC009_DisplayAboutRestaurantDetails"/>
+            <class name="org.districtappautomation.test.TC010_BookTable"/>
+            <class name="org.districtappautomation.test.TC011_SelectSlotAndTime"/>
+            <class name="org.districtappautomation.test.TC012_ValidateStoresFlow"/>
         </classes>
     </test>
 </suite>

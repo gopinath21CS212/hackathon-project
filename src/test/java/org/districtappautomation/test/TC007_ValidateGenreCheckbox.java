@@ -1,0 +1,13 @@
+package org.districtappautomation.test;
+
+import org.districtappautomation.test.baseclass.BaseClass;
+import org.districtappautomation.test.pages.MoviePage;
+import org.testng.annotations.Test;
+
+public class TC007_ValidateGenreCheckbox extends BaseClass {
+    @Test
+    public void DisplayGenre() throws InterruptedException{
+        MoviePage moviePage=new MoviePage(driver);
+        moviePage.display3dGenre();
+    }
+}
