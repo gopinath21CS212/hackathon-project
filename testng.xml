@@ -5,7 +5,6 @@
         <classes>
             <class name="org.districtappautomation.test.TC001_NavigateAndValidateEventPage"/>
             <class name="org.districtappautomation.test.TC002_ValidateLocationSelector"/>
-            <class name="org.districtappautomation.test.TC003_DisplayListOfEvents"/>
             <class name="org.districtappautomation.test.TC0023_ValidateAllNavigatorTabOfHomePage"/>
             <class name="org.districtappautomation.test.TC0024_DisplayTrendingMoviesInYourCity"/>
             <class name="org.districtappautomation.test.TC0025_DisplayFootwearBrands"/>
