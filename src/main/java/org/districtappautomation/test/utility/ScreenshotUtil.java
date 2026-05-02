@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class ScreenshotUtil {
 
-    public void takeScreenshot(WebDriver driver) {
+    public static void takeScreenshot(WebDriver driver) {
         try {
             File dir = new File("screenshots");
             if (!dir.exists()) dir.mkdirs();

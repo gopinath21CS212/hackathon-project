@@ -1,14 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-
 <suite name="District By Zomato">
-
     <test name="Completed Projects Automation">
         <classes>
             <class name="org.districtappautomation.test.TC001_NavigateAndValidateEventPage"/>
             <class name="org.districtappautomation.test.TC002_ValidateLocationSelector"/>
             <class name="org.districtappautomation.test.TC003_DisplayListOfEvents"/>
-            <class name="org.districtappautomation.test.TC004_DisplayListOfSports"/>
+            <class name="org.districtappautomation.test.TC0023_ValidateAllNavigatorTabOfHomePage"/>
+            <class name="org.districtappautomation.test.TC0024_DisplayTrendingMoviesInYourCity"/>
+            <class name="org.districtappautomation.test.TC0025_DisplayFootwearBrands"/>
         </classes>
     </test>
-
 </suite>

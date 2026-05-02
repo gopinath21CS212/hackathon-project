@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="60">
+
+    <!-- ===================== -->
+    <!-- Appenders -->
+    <!-- ===================== -->
+    <Appenders>
+
+        <!-- Console Appender -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{HH:mm:ss} [%t] %-5level %c{1} - %msg%n"/>
+        </Console>
+
+        <!-- Rolling File Appender -->
+        <RollingFile
+                name="FileAppender"
+                fileName="logs/automation.log"
+                filePattern="logs/automation-%d{yyyy-MM-dd}.log">
+
+            <PatternLayout>
+                <Pattern>
+                    %d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %c{1} - %msg%n
+                </Pattern>
+            </PatternLayout>
+
+            <Policies>
+                <!-- Roll logs daily -->
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <!-- Roll if file size exceeds 10 MB -->
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+
+            <!-- Keep last 7 days logs -->
+            <DefaultRolloverStrategy max="7"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <!-- ===================== -->
+    <!-- Loggers -->
+    <!-- ===================== -->
+    <Loggers>
+
+        <!-- Framework level logging -->
+        <Root level="info">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>

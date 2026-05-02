@@ -10,12 +10,11 @@ import java.util.Properties;
 
 public class ConfigReader {
     private static Properties properties;
-
     static {
         try {
             FileInputStream fis = new FileInputStream(
                     System.getProperty("user.dir")
-                            + "/config.properties");
+                            + "/src/main/resources/config/config.properties");
 
             properties = new Properties();
             properties.load(fis);
