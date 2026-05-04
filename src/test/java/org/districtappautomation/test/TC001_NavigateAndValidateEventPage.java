@@ -7,6 +7,7 @@ import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
 
 import org.apache.logging.log4j.Logger;
+import org.testng.asserts.SoftAssert;
 
 public class TC001_NavigateAndValidateEventPage extends BaseClass {
     Logger log = LoggerUtil.getLogger(TC001_NavigateAndValidateEventPage.class);
@@ -16,7 +17,7 @@ public class TC001_NavigateAndValidateEventPage extends BaseClass {
         LoggerUtil.info("Successfully Launched the Application");
         ScreenshotUtil.takeScreenshot(driver);
         homePage.navigateToEvents();
-        homePage.validatePage("events");
+        softAssert.assertTrue(homePage.validatePage("events"),"Event Page Not Found");
         ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("Selected and Validated location Selector Successfully");
     }

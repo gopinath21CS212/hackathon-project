@@ -56,7 +56,7 @@ public class HomePage {
         WaitUtils.waitForUrlContains(driver, "events");
     }
 
-    public void changeLocationAndValidate(String location1) throws InterruptedException {
+    public boolean changeLocationAndValidate(String location1) throws InterruptedException {
         Thread.sleep(4000);
         WaitUtils.waitForElementToBeClickable(driver, locationSelector).click();
         WebElement searchInput = WaitUtils.waitForElementVisible(driver, searchInputBy);
@@ -66,59 +66,61 @@ public class HomePage {
         firstResult.click();
         WebElement selectedLocation1 =
                 WaitUtils.waitForElementVisible(driver, currentLocation);
-        validateLocationSelector(location1, selectedLocation1);
+        return validateLocationSelector(location1, selectedLocation1);
     }
 
 
-    public void validateLocationSelector(String ExpectredLocation, WebElement currentLocation) throws InterruptedException {
+    public boolean validateLocationSelector(String ExpectredLocation, WebElement currentLocation) throws InterruptedException {
         Thread.sleep(1500);
-        Assert.assertEquals(ExpectredLocation, currentLocation.getText(),"Location Selector is Not Working Properly");
+        return ExpectredLocation.equals(currentLocation.getText());
+//        Assert.assertEquals(ExpectredLocation, currentLocation.getText(),"Location Selector is Not Working Properly");
     }
 
-    public void validatePage(String expectedPage){
-        Assert.assertTrue(Objects.requireNonNull(driver.getCurrentUrl()).contains(expectedPage),"Event Page Not Found");
+    public boolean validatePage(String expectedPage){
+        return driver.getCurrentUrl().contains(expectedPage);
+//        Assert.assertTrue(Objects.requireNonNull(driver.getCurrentUrl()).contains(expectedPage),"Event Page Not Found");
     }
 
-    public void navigateToDiningandValidate(){
+    public boolean navigateToDiningandValidate(){
         WaitUtils.waitForElementToBeClickable(driver,dinningTab);
         dinningTab.click();
         WaitUtils.waitForUrlContains(driver, "dining");
-        validatePage("dining");
+        return validatePage("dining");
     }
 
-    public void navigateToMoviesandValidate(){
+    public boolean navigateToMoviesandValidate(){
         WaitUtils.waitForElementToBeClickable(driver,moviesTab);
         moviesTab.click();
         WaitUtils.waitForUrlContains(driver, "movies");
-        validatePage("movies");
+        return validatePage("movies");
     }
 
-    public void navigateToEventandValidate(){
+    public boolean navigateToEventandValidate(){
         WaitUtils.waitForElementToBeClickable(driver,eventsTab);
         eventsTab.click();
         WaitUtils.waitForUrlContains(driver, "events");
-        validatePage("events");
+        return validatePage("events");
     }
 
-    public void navigateToIPLandValidate(){
+    public Boolean navigateToIPLandValidate(){
         WaitUtils.waitForElementToBeClickable(driver,iPLTab);
         iPLTab.click();
         WaitUtils.waitForUrlContains(driver, "ipl-ticket-booking");
-        validatePage("ipl-ticket-booking");
+        return validatePage("ipl-ticket-booking");
     }
 
-    public void navigateToStoresandValidate(){
+    public boolean navigateToStoresandValidate(){
         WaitUtils.waitForElementToBeClickable(driver,storesTab);
         storesTab.click();
         WaitUtils.waitForUrlContains(driver, "stores");
-        validatePage("stores");
+        return validatePage("stores");
     }
 
-    public void navigateToActivitiesandValidate(){
+    public boolean navigateToActivitiesandValidate(){
         WaitUtils.waitForElementToBeClickable(driver,activitiesTab);
         activitiesTab.click();
         WaitUtils.waitForUrlContains(driver, "activities");
-        validatePage("activities");
+        return validatePage("activities");
     }
 
 }

@@ -10,7 +10,7 @@ public class TC011_SelectSlotAndTime extends BaseClass {
     public void selectSlotAndTimingTest() throws InterruptedException {
         DiningPage diningPage = new DiningPage(driver);
         HomePage homePage = new HomePage(driver);
-        homePage.changeLocationAndValidate("Bangalore");
+        softAssert.assertTrue(homePage.changeLocationAndValidate("Bangalore"),"Location Selector is Not Working Properly");
         diningPage.selectSlotTimeAndProceed();
     }
 }

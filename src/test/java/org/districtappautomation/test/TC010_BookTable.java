@@ -11,7 +11,7 @@ public class TC010_BookTable extends BaseClass {
     public void bookTableTest() throws InterruptedException {
         DiningPage diningPage = new DiningPage(driver);
         HomePage homePage = new HomePage(driver);
-        homePage.changeLocationAndValidate("Bangalore");
+        softAssert.assertTrue(homePage.changeLocationAndValidate("Bangalore"),"Location Selector is Not Working Properly");
         diningPage.bookTableAndPrintSelection();
     }
 }

@@ -5,6 +5,7 @@ import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.DiningPage;
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TC0024_DisplayTrendingMoviesInYourCity  extends BaseClass{
@@ -17,7 +18,7 @@ public class TC0024_DisplayTrendingMoviesInYourCity  extends BaseClass{
         diningPage.openDiningTabSearchBox();
         ScreenshotUtil.takeScreenshot(driver);
         diningPage.navigateToDiningMovieTab();
-        diningPage.displayTrendingMoviesList();
+        softAssert.assertTrue(diningPage.displayTrendingMoviesList(),"Trending movies list is empty!");
         ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("Successfully Displayed Trending Movies In Your City");
     }

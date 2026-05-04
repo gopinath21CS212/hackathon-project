@@ -13,17 +13,17 @@ public class TC0023_ValidateAllNavigatorTabOfHomePage extends BaseClass {
     public void validateAllNavigatorTabOfHomePage() {
         HomePage homePage = new HomePage(driver);
         LoggerUtil.info("Successfully Launched the Application");
-         homePage.navigateToDiningandValidate();
+        softAssert.assertTrue(homePage.navigateToDiningandValidate(),"Dining Page Not Found");
         ScreenshotUtil.takeScreenshot(driver);
-         homePage.navigateToMoviesandValidate();
+        softAssert.assertTrue(homePage.navigateToMoviesandValidate(),"Movies Page Not Found");
         ScreenshotUtil.takeScreenshot(driver);
-         homePage.navigateToEventandValidate();
+        softAssert.assertTrue(homePage.navigateToEventandValidate(),"Event Page Not Found");
         ScreenshotUtil.takeScreenshot(driver);
-         homePage.navigateToStoresandValidate();
+        softAssert.assertTrue(homePage.navigateToStoresandValidate(),"Stores Page Not Found");
         ScreenshotUtil.takeScreenshot(driver);
-         homePage.navigateToActivitiesandValidate();
+        softAssert.assertTrue(homePage.navigateToActivitiesandValidate(),"Event Page Not Found");
         ScreenshotUtil.takeScreenshot(driver);
-         homePage.navigateToIPLandValidate();
+        softAssert.assertTrue(homePage.navigateToIPLandValidate(),"Event Page Not Found");
         ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("Successfully Validated All Navigator Tab Of HomePage");
     }

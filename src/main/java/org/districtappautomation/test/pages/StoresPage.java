@@ -52,13 +52,18 @@ public class StoresPage {
     public List<WebElement> getStoresNameList() {
         return storesNameList;
     }
-    public void displayFootwearBrandsInYourCity(){
+    public boolean displayFootwearBrandsInYourCity(){
         WaitUtils.waitForElementToBeClickable(driver,storesNameList.get(0));
-        Assert.assertFalse(getStoresNameList().isEmpty(), "Footwear list is empty!");
-        System.out.println("Footwear brands in your city: ");
-        for(WebElement storesName:storesNameList){
-            System.out.println(storesName.getText());
+        if(getStoresNameList().isEmpty()){
+            return false;
         }
+        else{
+            System.out.println("Footwear brands in your city: ");
+            for(WebElement storesName:storesNameList){
+                System.out.println(storesName.getText());
+            }
+        }
+        return true;
     }
 
     public void selectThirdCategory() {

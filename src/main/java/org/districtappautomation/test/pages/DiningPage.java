@@ -75,12 +75,17 @@ public class DiningPage {
         return trendingMoviesList;
     }
 
-    public void displayTrendingMoviesList() throws InterruptedException {
-        Thread.sleep(20000);
-        Assert.assertFalse(getTrendingMoviesList().isEmpty(), "Trending movies list is empty!");
-        for(WebElement trendingMovies : trendingMoviesList){
-            System.out.println(trendingMovies.getText());
+    public boolean displayTrendingMoviesList() throws InterruptedException {
+        Thread.sleep(2000);
+        if(getTrendingMoviesList().isEmpty()){
+            return false;
         }
+        else{
+            for(WebElement trendingMovies : trendingMoviesList){
+                System.out.println(trendingMovies.getText());
+            }
+        }
+        return true;
     }
     public void openDiningTabSearchBox(){
         diningTab.click();

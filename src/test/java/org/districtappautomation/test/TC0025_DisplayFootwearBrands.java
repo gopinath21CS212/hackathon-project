@@ -17,7 +17,7 @@ public class TC0025_DisplayFootwearBrands extends BaseClass {
         storesPage.navigateToStoresPage();
         ScreenshotUtil.takeScreenshot(driver);
         storesPage.navigateToFootwearPage();
-        storesPage.displayFootwearBrandsInYourCity();
+        softAssert.assertTrue(storesPage.displayFootwearBrandsInYourCity(),"Footwear list is empty!");
         ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("Successfully Displayed Footwear Brands In Your City");
     }
