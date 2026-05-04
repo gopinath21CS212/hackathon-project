@@ -3,25 +3,30 @@
 <suite name="District By Zomato">
     <test name="Completed Projects Automation">
         <classes>
-            <class name="org.districtappautomation.test.TC001_NavigateAndValidateEventPage"/>
-            <class name="org.districtappautomation.test.TC002_ValidateLocationSelector"/>
-            <class name="org.districtappautomation.test.TC0023_ValidateAllNavigatorTabOfHomePage"/>
-            <class name="org.districtappautomation.test.TC0024_DisplayTrendingMoviesInYourCity"/>
-            <class name="org.districtappautomation.test.TC0025_DisplayFootwearBrands"/>
-            <class name="org.districtappautomation.test.TC003_DisplayListOfEvents"/>
-            <class name="org.districtappautomation.test.TC004_DisplayListOfSports"/>
-            <class name="org.districtappautomation.test.TC005_PriceLowToHigh"/>
-            <class name="org.districtappautomation.test.TC006_ValidateCheckboxes"/>
-            <class name="org.districtappautomation.test.TC007_ValidateGenreCheckbox"/>
-            <class name="org.districtappautomation.test.TC008_DisplayRestaurantDetails"/>
-            <class name="org.districtappautomation.test.TC009_DisplayAboutRestaurantDetails"/>
-            <class name="org.districtappautomation.test.TC010_BookTable"/>
-            <class name="org.districtappautomation.test.TC011_SelectSlotAndTime"/>
-            <class name="org.districtappautomation.test.TC012_ValidateStoresFlow"/>
-            <class name="org.districtappautomation.test.TC005_ExtractMovieLanguagesFromFilter"/>
-            <class name="org.districtappautomation.test.TC004_SingleSelect"/>
-            <class name="org.districtappautomation.test.TC006_MultipleSelect"/>
-            <class name="org.districtappautomation.test.TC007_ClearFilter"/>
+            <class name="org.districtappautomation.test.gopinath.TC001_NavigateAndValidateEventPage"/>
+            <class name="org.districtappautomation.test.gopinath.TC002_ValidateLocationSelector"/>
+            <class name="org.districtappautomation.test.gopinath.TC0023_ValidateAllNavigatorTabOfHomePage"/>
+            <class name="org.districtappautomation.test.gopinath.TC0024_DisplayTrendingMoviesInYourCity"/>
+            <class name="org.districtappautomation.test.gopinath.TC0025_DisplayFootwearBrands"/>
+            <class name="org.districtappautomation.test.tejes.TC003_DisplayListOfEvents"/>
+            <class name="org.districtappautomation.test.tejes.TC004_DisplayListOfSports"/>
+            <class name="org.districtappautomation.test.tejes.TC005_PriceLowToHigh"/>
+            <class name="org.districtappautomation.test.tejes.TC006_ValidateCheckboxes"/>
+            <class name="org.districtappautomation.test.tejes.TC007_ValidateGenreCheckbox"/>
+            <class name="org.districtappautomation.test.varshiga.TC008_DisplayRestaurantDetails"/>
+            <class name="org.districtappautomation.test.varshiga.TC009_DisplayAboutRestaurantDetails"/>
+            <class name="org.districtappautomation.test.varshiga.TC010_BookTable"/>
+            <class name="org.districtappautomation.test.varshiga.TC011_SelectSlotAndTime"/>
+            <class name="org.districtappautomation.test.varshiga.TC012_ValidateStoresFlow"/>
+            <class name="org.districtappautomation.test.gowtham.TC005_ExtractMovieLanguagesFromFilter"/>
+            <class name="org.districtappautomation.test.gowtham.TC004_SingleSelect"/>
+            <class name="org.districtappautomation.test.gowtham.TC006_MultipleSelect"/>
+            <class name="org.districtappautomation.test.gowtham.TC007_ClearFilter"/>
+            <class name="org.districtappautomation.test.chandu.TC004_InvalidSignupTest"/>
+            <class name="org.districtappautomation.test.chandu.TC005_ValidSignup"/>
+            <class name="org.districtappautomation.test.chandu.TC006_FitnessEventsCount"/>
+            <class name="org.districtappautomation.test.chandu.TC007_MusicEventsCount"/>
+            <class name="org.districtappautomation.test.chandu.TC008_SearchPartialEventName"/>
 
         </classes>
     </test>

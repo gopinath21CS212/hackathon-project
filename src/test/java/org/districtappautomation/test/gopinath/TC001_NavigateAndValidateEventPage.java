@@ -1,4 +1,4 @@
-package org.districtappautomation.test;
+package org.districtappautomation.test.gopinath;
 
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.HomePage;
@@ -6,11 +6,7 @@ import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
 
-import org.apache.logging.log4j.Logger;
-import org.testng.asserts.SoftAssert;
-
 public class TC001_NavigateAndValidateEventPage extends BaseClass {
-    Logger log = LoggerUtil.getLogger(TC001_NavigateAndValidateEventPage.class);
     @Test
     public void navigateAndValidateEventPage() {
         HomePage homePage = new HomePage(driver);

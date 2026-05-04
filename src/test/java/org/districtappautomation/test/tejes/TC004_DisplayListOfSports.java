@@ -1,4 +1,4 @@
-package org.districtappautomation.test;
+package org.districtappautomation.test.tejes;
 
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.SportsPage;

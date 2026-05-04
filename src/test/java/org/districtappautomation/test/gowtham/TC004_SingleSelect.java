@@ -1,11 +1,10 @@
-package org.districtappautomation.test;
+package org.districtappautomation.test.gowtham;
 
 import org.districtappautomation.test.baseclass.BaseClass;
 
 import org.districtappautomation.test.pages.MoviePage;
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 public class TC004_SingleSelect extends BaseClass {
 

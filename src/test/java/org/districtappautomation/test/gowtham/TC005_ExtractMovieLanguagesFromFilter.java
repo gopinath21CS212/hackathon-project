@@ -1,10 +1,9 @@
-package org.districtappautomation.test;
+package org.districtappautomation.test.gowtham;
 
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.MoviePage;
 
 import org.districtappautomation.test.utility.LoggerUtil;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;

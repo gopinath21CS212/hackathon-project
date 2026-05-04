@@ -1,15 +1,12 @@
-package org.districtappautomation.test;
+package org.districtappautomation.test.gopinath;
 
-import org.apache.logging.log4j.Logger;
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.DiningPage;
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TC0024_DisplayTrendingMoviesInYourCity  extends BaseClass{
-    Logger log = LoggerUtil.getLogger(TC0024_DisplayTrendingMoviesInYourCity.class);
 
     @Test
     public void validateTrendingMoviesInYourCity() throws InterruptedException {

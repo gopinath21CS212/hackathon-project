@@ -1,15 +1,12 @@
-package org.districtappautomation.test;
+package org.districtappautomation.test.gopinath;
 
-import org.apache.logging.log4j.Logger;
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.HomePage;
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 public class TC002_ValidateLocationSelector extends BaseClass {
-    Logger log = LoggerUtil.getLogger(TC002_ValidateLocationSelector.class);
     @Test
     public void ValidateAndSelectCity() throws InterruptedException {
         HomePage homePage = new HomePage(driver);
