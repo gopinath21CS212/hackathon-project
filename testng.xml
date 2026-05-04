@@ -18,6 +18,11 @@
             <class name="org.districtappautomation.test.TC010_BookTable"/>
             <class name="org.districtappautomation.test.TC011_SelectSlotAndTime"/>
             <class name="org.districtappautomation.test.TC012_ValidateStoresFlow"/>
+            <class name="org.districtappautomation.test.TC005_ExtractMovieLanguagesFromFilter"/>
+            <class name="org.districtappautomation.test.TC004_SingleSelect"/>
+            <class name="org.districtappautomation.test.TC006_MultipleSelect"/>
+            <class name="org.districtappautomation.test.TC007_ClearFilter"/>
+
         </classes>
     </test>
 </suite>
