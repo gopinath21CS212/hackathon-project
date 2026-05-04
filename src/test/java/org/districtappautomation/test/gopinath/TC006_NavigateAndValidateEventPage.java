@@ -6,16 +6,15 @@ import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
 
-public class TC002_ValidateLocationSelector extends BaseClass {
+public class TC006_NavigateAndValidateEventPage extends BaseClass {
     @Test
-    public void ValidateAndSelectCity() throws InterruptedException {
+    public void navigateAndValidateEventPage() {
         HomePage homePage = new HomePage(driver);
         LoggerUtil.info("Successfully Launched the Application");
-        Thread.sleep(4000);
-        softAssert.assertTrue(homePage.changeLocationAndValidate("Chennai"),"Location Selector is Not Working Properly");
         ScreenshotUtil.takeScreenshot(driver);
-        softAssert.assertTrue(homePage.changeLocationAndValidate("Bangalore"),"Location Selector is Not Working Properly");
+        homePage.navigateToEvents();
+        softAssert.assertTrue(homePage.validatePage("events"),"Event Page Not Found");
         ScreenshotUtil.takeScreenshot(driver);
-        LoggerUtil.info("Navigated and Validated Event Page Successfully");
+        LoggerUtil.info("Selected and Validated location Selector Successfully");
     }
 }

@@ -7,7 +7,7 @@ import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class TC007_MusicEventsCount extends BaseClass {
+public class TC004_MusicEventsCount extends BaseClass {
 
     @Test
     public void testMusicEventsCount() {

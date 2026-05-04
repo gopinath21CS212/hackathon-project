@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class   TC006_FitnessEventsCount extends BaseClass {
+public class TC003_FitnessEventsCount extends BaseClass {
 
     @Test
     public void DisplayListOfFitness() {

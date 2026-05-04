@@ -6,7 +6,7 @@ import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
 
-public class TC0023_ValidateAllNavigatorTabOfHomePage extends BaseClass {
+public class TC008_ValidateAllNavigatorTabOfHomePage extends BaseClass {
     @Test
     public void validateAllNavigatorTabOfHomePage() {
         HomePage homePage = new HomePage(driver);

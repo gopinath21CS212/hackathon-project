@@ -5,7 +5,7 @@ import org.districtappautomation.test.pages.MoviePage;
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.testng.annotations.Test;
 
-public class TC007_ClearFilter extends BaseClass {
+public class TC012_ClearFilter extends BaseClass {
 
     @Test
     public void verifyClearFilters() throws InterruptedException {

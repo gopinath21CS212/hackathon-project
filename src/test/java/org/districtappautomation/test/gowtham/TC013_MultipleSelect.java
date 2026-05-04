@@ -6,7 +6,7 @@ import org.districtappautomation.test.pages.MoviePage;
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.testng.annotations.Test;
 
-public class TC006_MultipleSelect extends BaseClass {
+public class TC013_MultipleSelect extends BaseClass {
 
     @Test
     public void multiSelectFilters() throws InterruptedException {

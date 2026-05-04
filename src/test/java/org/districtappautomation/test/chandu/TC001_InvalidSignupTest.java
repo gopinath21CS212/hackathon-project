@@ -7,7 +7,7 @@ import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class TC004_InvalidSignupTest extends BaseClass {
+public class TC001_InvalidSignupTest extends BaseClass {
 
     @Test
     public void testShortMobileNumber() {

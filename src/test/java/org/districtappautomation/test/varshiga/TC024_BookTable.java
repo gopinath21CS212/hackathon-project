@@ -5,7 +5,7 @@ import org.districtappautomation.test.pages.DiningPage;
 import org.districtappautomation.test.pages.HomePage;
 import org.testng.annotations.Test;
 
-public class TC010_BookTable extends BaseClass {
+public class TC024_BookTable extends BaseClass {
 
     @Test
     public void bookTableTest() throws InterruptedException {

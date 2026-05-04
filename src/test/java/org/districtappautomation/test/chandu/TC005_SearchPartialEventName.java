@@ -7,7 +7,7 @@ import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class TC008_SearchPartialEventName extends BaseClass {
+public class TC005_SearchPartialEventName extends BaseClass {
 
     @Test
     public void verifySearchUsingSearchBar() {

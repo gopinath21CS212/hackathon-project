@@ -6,7 +6,7 @@ import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
 
-public class TC0024_DisplayTrendingMoviesInYourCity  extends BaseClass{
+public class TC009_DisplayTrendingMoviesInYourCity extends BaseClass{
 
     @Test
     public void validateTrendingMoviesInYourCity() throws InterruptedException {

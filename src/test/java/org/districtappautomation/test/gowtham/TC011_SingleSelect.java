@@ -6,7 +6,7 @@ import org.districtappautomation.test.pages.MoviePage;
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.testng.annotations.Test;
 
-public class TC004_SingleSelect extends BaseClass {
+public class TC011_SingleSelect extends BaseClass {
 
     @Test
     public void selectSingleCheckboxAndApplyFilter() throws InterruptedException {

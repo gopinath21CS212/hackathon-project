@@ -6,7 +6,7 @@ import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
 
-public class TC0025_DisplayFootwearBrands extends BaseClass {
+public class TC010_DisplayFootwearBrands extends BaseClass {
 
     @Test
     public void displayFootwearBrandsInYourCity() {
