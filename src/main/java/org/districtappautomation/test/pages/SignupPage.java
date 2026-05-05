@@ -60,7 +60,6 @@ public class SignupPage {
     public boolean isVerificationFlowTriggered() {
         return isOtpScreenDisplayed();
     }
-
     public void closeModal() {
         try {
             if (closeBtn.isDisplayed()) {

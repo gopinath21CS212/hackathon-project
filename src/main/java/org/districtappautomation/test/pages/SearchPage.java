@@ -17,7 +17,6 @@ public class SearchPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
     @FindBy(xpath = "//a[@href='/search']")
     private WebElement homeSearchBar;
 
@@ -28,7 +27,6 @@ public class SearchPage {
         WaitUtils.waitForElementToBeClickable(driver, homeSearchBar).click();
         driver.switchTo().activeElement().sendKeys(keyword, Keys.ENTER);
     }
-
     public int getResultsCount() {
         return searchResults.size();
     }
