@@ -3,30 +3,30 @@
 <suite name="District By Zomato">
     <test name="Completed Projects Automation">
         <classes>
-            <class name="org.districtappautomation.test.gopinath.TC006_NavigateAndValidateEventPage"/>
-            <class name="org.districtappautomation.test.gopinath.TC007_ValidateLocationSelector"/>
-            <class name="org.districtappautomation.test.gopinath.TC008_ValidateAllNavigatorTabOfHomePage"/>
-            <class name="org.districtappautomation.test.gopinath.TC009_DisplayTrendingMoviesInYourCity"/>
-            <class name="org.districtappautomation.test.gopinath.TC010_DisplayFootwearBrands"/>
-            <class name="org.districtappautomation.test.tejes.TC016_DisplayListOfEvents"/>
-            <class name="org.districtappautomation.test.tejes.TC020_DisplayListOfSports"/>
-            <class name="org.districtappautomation.test.tejes.TC019_PriceLowToHigh"/>
-            <class name="org.districtappautomation.test.tejes.TC018_ValidateCheckboxes"/>
-            <class name="org.districtappautomation.test.tejes.TC017_ValidateGenreCheckbox"/>
-            <class name="org.districtappautomation.test.varshiga.TC021_DisplayRestaurantDetails"/>
-            <class name="org.districtappautomation.test.varshiga.TC022_DisplayAboutRestaurantDetails"/>
-            <class name="org.districtappautomation.test.varshiga.TC023_StoresHomeFurniture"/>
-            <class name="org.districtappautomation.test.varshiga.TC024_ValidateStoresFlow"/>
-            <class name="org.districtappautomation.test.varshiga.TC025_IPLMatchListings"/>
-            <class name="org.districtappautomation.test.gowtham.TC014_ExtractMovieLanguagesFromFilter"/>
-            <class name="org.districtappautomation.test.gowtham.TC011_SingleSelect"/>
-            <class name="org.districtappautomation.test.gowtham.TC013_MultipleSelect"/>
-            <class name="org.districtappautomation.test.gowtham.TC012_ClearFilter"/>
             <class name="org.districtappautomation.test.chandu.TC001_InvalidSignupTest"/>
             <class name="org.districtappautomation.test.chandu.TC002_ValidSignup"/>
             <class name="org.districtappautomation.test.chandu.TC003_FitnessEventsCount"/>
             <class name="org.districtappautomation.test.chandu.TC004_MusicEventsCount"/>
             <class name="org.districtappautomation.test.chandu.TC005_SearchPartialEventName"/>
+            <class name="org.districtappautomation.test.gopinath.TC006_NavigateAndValidateEventPage"/>
+            <class name="org.districtappautomation.test.gopinath.TC007_ValidateLocationSelector"/>
+            <class name="org.districtappautomation.test.gopinath.TC008_ValidateAllNavigatorTabOfHomePage"/>
+            <class name="org.districtappautomation.test.gopinath.TC009_DisplayTrendingMoviesInYourCity"/>
+            <class name="org.districtappautomation.test.gopinath.TC010_DisplayFootwearBrands"/>
+            <class name="org.districtappautomation.test.gowtham.TC011_SingleSelect"/>
+            <class name="org.districtappautomation.test.gowtham.TC012_ClearFilter"/>
+            <class name="org.districtappautomation.test.gowtham.TC013_MultipleSelect"/>
+            <class name="org.districtappautomation.test.gowtham.TC014_ExtractMovieLanguagesFromFilter"/>
+            <class name="org.districtappautomation.test.tejes.TC016_DisplayListOfEvents"/>
+            <class name="org.districtappautomation.test.tejes.TC017_ValidateGenreCheckbox"/>
+            <class name="org.districtappautomation.test.tejes.TC018_ValidateCheckboxes"/>
+            <class name="org.districtappautomation.test.tejes.TC019_PriceLowToHigh"/>
+            <class name="org.districtappautomation.test.tejes.TC020_DisplayListOfSports"/>
+            <class name="org.districtappautomation.test.varshiga.TC021_DisplayRestaurantDetails"/>
+            <class name="org.districtappautomation.test.varshiga.TC022_DisplayAboutRestaurantDetails"/>
+            <class name="org.districtappautomation.test.varshiga.TC023_StoresHomeFurniture"/>
+            <class name="org.districtappautomation.test.varshiga.TC024_ValidateStoresFlow"/>
+            <class name="org.districtappautomation.test.varshiga.TC025_IPLMatchListings"/>
         </classes>
     </test>
 </suite>
