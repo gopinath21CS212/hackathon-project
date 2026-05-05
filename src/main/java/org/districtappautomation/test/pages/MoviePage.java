@@ -67,6 +67,7 @@ public class MoviePage {
     }
 
     public boolean display3dGenre() {
+        LoggerUtil.info("TestCase_17 Started");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         movieIcon.click();
@@ -83,7 +84,9 @@ public class MoviePage {
         wait.until(ExpectedConditions.elementToBeClickable(threeD));
         threeD.click();
         ScreenshotUtil.takeScreenshot(driver);
+        LoggerUtil.info("TestCase_17 Execution successful");
         return true;
+
     }
 
     public void openFilters() {

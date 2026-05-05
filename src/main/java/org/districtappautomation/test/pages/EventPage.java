@@ -42,6 +42,7 @@ public class EventPage {
     }
 
     public void displayListOfEvents(SoftAssert softAssert) throws InterruptedException {
+        LoggerUtil.info("TestCase_16 Started");
         eventsTab.click();
         Thread.sleep(3000);
         JavascriptExecutor js=(JavascriptExecutor) driver;
@@ -66,9 +67,11 @@ public class EventPage {
                 LoggerUtil.info((i + 1) + ". " + eventName);
             }
         }
+        LoggerUtil.info("TestCase_16 Execution Successful");
     }
 
     public void priceLowToHigh(SoftAssert softAssert) {
+        LoggerUtil.info("TestCase_19 Started");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         eventsTab.click();
@@ -82,9 +85,11 @@ public class EventPage {
         softAssert.assertEquals(lowToHighRadio.getAttribute("aria-checked"), "true", "Price Low to High radio button is NOT selected");
         wait.until(ExpectedConditions.elementToBeClickable(applyFilter));
         applyFilter.click();
+        LoggerUtil.info("TestCase_19 Execution Successful");
     }
 
     public void checkboxValidation(SoftAssert softAssert) {
+        LoggerUtil.info("TestCase_18 Started");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         eventsTab.click();
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -101,5 +106,6 @@ public class EventPage {
         tomorrow.click();
         ScreenshotUtil.takeScreenshot(driver);
         softAssert.assertTrue(tomorrow.isDisplayed() && tomorrow.isEnabled(), "Tomorrow button was not clicked or not active");
+        LoggerUtil.info("TestCase_18 Execution Successful");
     }
 }

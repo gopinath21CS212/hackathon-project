@@ -23,6 +23,7 @@ public class SportsPage {
     }
 
     public void displayListOfSports(SoftAssert softAssert) throws InterruptedException {
+        LoggerUtil.info("TestCase_20 Started");
         Thread.sleep(3000);
         eventsTab.click();
         Thread.sleep(3000);
@@ -42,5 +43,7 @@ public class SportsPage {
                 count++;
             }
         }
+        LoggerUtil.info("TestCase_20 Execution Successful");
+
     }
 }
