@@ -11,6 +11,7 @@ public class TC022_DisplayAboutRestaurantDetails extends BaseClass {
     public void displayAboutRestaurantDetails() {
         DiningPage diningPage = new DiningPage(driver);
         LoggerUtil.info("Successfully Launched the Application");
+        softAssert.assertTrue(diningPage.printAboutRestaurantDetails(),"Restaurant page not opened");
         diningPage.printAboutRestaurantDetails();
         ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("Restaurant details were retrieved successfully");

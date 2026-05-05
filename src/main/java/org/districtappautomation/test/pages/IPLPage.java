@@ -1,5 +1,7 @@
 package org.districtappautomation.test.pages;
 
+import org.districtappautomation.test.utility.LoggerUtil;
+import org.districtappautomation.test.utility.WaitUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -34,53 +35,42 @@ public class IPLPage {
     public IPLPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void navigateToIplPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(iplTab)).click();
+        WaitUtils.waitForElementToBeClickable(driver,iplTab).click();
+        WaitUtils.waitForElementVisible(driver,ticketsOnSaleHeader);
     }
 
     public void printAvailableTickets() {
-
-        wait.until(ExpectedConditions.visibilityOf(ticketsOnSaleHeader));
-
-        ((JavascriptExecutor) driver)
-                .executeScript("arguments[0].scrollIntoView(true);", ticketsOnSaleHeader);
-
-        wait.until(ExpectedConditions.visibilityOfAllElements(availableTicketMatches));
-
-        System.out.println("======= Available Tickets =======");
+        WaitUtils.waitForElementToBeClickable(driver,ticketsOnSaleHeader);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ticketsOnSaleHeader);
+        WaitUtils.waitForAllElementVisible(driver,availableTicketMatches);
+        LoggerUtil.info("======= Available Tickets =======");
         for (WebElement match : availableTicketMatches) {
-            System.out.println(
+            LoggerUtil.info(
                     match.getText()
                             .replace("Sale is live", "")
                             .replace("Book tickets", "")
                             .trim()
             );
-            System.out.println("--------------------------------");
+            LoggerUtil.info("--------------------------------");
         }
-        System.out.println("================================");
+        LoggerUtil.info("================================");
     }
 
     public void printUpcomingMatches() {
-
-        wait.until(ExpectedConditions.visibilityOf(upcomingHeader));
-
-        ((JavascriptExecutor) driver)
-                .executeScript("arguments[0].scrollIntoView(true);", upcomingHeader);
-
-        wait.until(ExpectedConditions.visibilityOfAllElements(upcomingMatches));
-
-        System.out.println("======= Upcoming Matches =======");
+        WaitUtils.waitForElementToBeClickable(driver,upcomingHeader);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", upcomingHeader);
+        WaitUtils.waitForAllElementVisible(driver,upcomingMatches);
+        LoggerUtil.info("======= Upcoming Matches =======");
         for (WebElement match : upcomingMatches) {
-            System.out.println(
+            LoggerUtil.info(
                     match.getText()
                             .replace("Coming soon", "")
-                            .trim()
-            );
-            System.out.println("--------------------------------");
+                            .trim());
+            LoggerUtil.info("--------------------------------");
         }
-        System.out.println("===============================");
+        LoggerUtil.info("===============================");
     }
 }

@@ -14,6 +14,7 @@ public class TC023_StoresHomeFurniture extends BaseClass {
         LoggerUtil.info("Successfully Launched the Application");
         storesPage.navigateToStoresPage();
         storesPage.selectHomeFurnitureCategory();
+        softAssert.assertTrue(driver.getCurrentUrl().contains("furniture"),"Not Able to Navigate to Furniture Tab");
         ScreenshotUtil.takeScreenshot(driver);
         storesPage.printAllStoreNames();
         ScreenshotUtil.takeScreenshot(driver);
