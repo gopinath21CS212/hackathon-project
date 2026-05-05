@@ -27,7 +27,6 @@
             <class name="org.districtappautomation.test.chandu.TC003_FitnessEventsCount"/>
             <class name="org.districtappautomation.test.chandu.TC004_MusicEventsCount"/>
             <class name="org.districtappautomation.test.chandu.TC005_SearchPartialEventName"/>
-
         </classes>
     </test>
 </suite>
