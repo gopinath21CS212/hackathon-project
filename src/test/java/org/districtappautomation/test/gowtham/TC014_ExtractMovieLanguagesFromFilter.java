@@ -13,6 +13,7 @@ public class TC014_ExtractMovieLanguagesFromFilter extends BaseClass {
     @Test
     public void extractLanguages(){
         MoviePage moviesPage = new MoviePage(driver);
+        LoggerUtil.info("Successfully Launched the Application");
         moviesPage.clickMovies();
         moviesPage.openFilters();
         moviesPage.openLanguageTab();
