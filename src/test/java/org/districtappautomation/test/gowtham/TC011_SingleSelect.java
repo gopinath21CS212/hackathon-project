@@ -19,6 +19,5 @@ public class TC011_SingleSelect extends BaseClass {
         moviesPage.printDisplayeFilterMovieNames();
         softAssert.assertTrue(moviesPage.printDisplayeFilterMovieNames(),"Filter Not Working Properly");
         LoggerUtil.info("SingleSelect Test Case Execution Completed");
-
     }
 }

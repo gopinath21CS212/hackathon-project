@@ -8,7 +8,6 @@ public class TC019_PriceLowToHigh extends BaseClass {
     @Test
     public void PriceLowToHigh(){
         EventPage eventPage=new EventPage(driver);
-        eventPage.priceLowToHigh();
+        eventPage.priceLowToHigh(softAssert);
     }
-
 }

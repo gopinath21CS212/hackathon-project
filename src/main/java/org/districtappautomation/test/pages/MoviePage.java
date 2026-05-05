@@ -1,5 +1,6 @@
 package org.districtappautomation.test.pages;
 
+import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.districtappautomation.test.utility.WaitUtils;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,8 +11,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +25,6 @@ public class MoviePage {
     @FindBy(xpath = "//button[@type='button' and .//span[normalize-space()='Filters']]")
     WebElement filterButton;
 
-
-
-    // Container (for clicking)
     @FindBy(xpath = "//span[normalize-space()='Animation']/ancestor::div[contains(@class,'checkbox-container')]")
     WebElement animationContainer;
 
@@ -40,9 +36,6 @@ public class MoviePage {
 
     @FindBy(xpath = "//button[.//span[normalize-space()='3D']]")
     WebElement threeD;
-
-
-    /* -------- LOCATORS -------- */
 
     @FindBy(xpath = "//button[@type='button' and .//span[normalize-space()='Filters']]")
     private WebElement filtersButton;
@@ -62,14 +55,8 @@ public class MoviePage {
     @FindBy(xpath = "//div[contains(@class,'dds-bg-surface-secondary')]//span")
     private List<WebElement> allFilterOptions;
 
-    @FindBy(xpath = "//div[contains(@class,'dds-grid')]//a")
-    private List<WebElement> ThisWeekMovieCards;
-
-
     @FindBy(xpath = "//div[contains(@class,'dds-grid')]/a")
     private List<WebElement> FilterMovieCards;
-
-
 
     public MoviePage(WebDriver driver) {
         this.driver = driver;
@@ -99,9 +86,6 @@ public class MoviePage {
         return true;
     }
 
-
-    /* -------- ACTIONS -------- */
-
     public void openFilters() {
         WaitUtils.waitForElementToBeClickable(driver, filterButton);
         filtersButton.click();
@@ -116,9 +100,7 @@ public class MoviePage {
     }
 
     public List<String> getAvailableLanguages() {
-
         List<String> languages = new ArrayList<>();
-
         for (WebElement lang : allFilterOptions) {
             String text = lang.getText().trim();
             if (!text.isEmpty()) {
@@ -148,7 +130,6 @@ public class MoviePage {
         clearFiltersButton.click();
     }
 
-
     public boolean printDisplayeFilterMovieNames() {
         WaitUtils.waitForAllElementVisible(driver,FilterMovieCards);
         int size = FilterMovieCards.size();
@@ -159,45 +140,27 @@ public class MoviePage {
             try {
                 String title = FilterMovieCards.get(i).getText().trim();
                 if (!title.isEmpty()) {
-                    System.out.println(title);
+                    LoggerUtil.info(title);
                 }
             } catch (StaleElementReferenceException e) {
                 PageFactory.initElements(driver, this);
                 String title = FilterMovieCards.get(i).getText().trim();
                 if (!title.isEmpty()) {
-                    System.out.println(title);
+                    LoggerUtil.info(title);
                 }
             }
         }
         return true;
     }
 
-
-
     public boolean areAllFiltersCleared() {
-
         for (WebElement option : allFilterOptions) {
-
-            // check selection using aria-checked or class
             String ariaChecked = option.getAttribute("aria-checked");
             String classValue = option.getAttribute("class");
-
-            if ("true".equalsIgnoreCase(ariaChecked)
-                    || classValue.contains("active")
-                    || classValue.contains("selected")) {
-                return false; // some filter is still selected
+            if ("true".equalsIgnoreCase(ariaChecked) || classValue.contains("active") || classValue.contains("selected")) {
+                return false;
             }
         }
         return true;
     }
-
 }
-
-
-
-
-
-
-
-
-

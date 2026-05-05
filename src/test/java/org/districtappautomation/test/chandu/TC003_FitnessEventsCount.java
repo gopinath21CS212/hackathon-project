@@ -16,20 +16,14 @@ public class TC003_FitnessEventsCount extends BaseClass {
         SoftAssert softAssert = new SoftAssert();
         FitnessPage fitnessPage = new FitnessPage(driver);
         List<WebElement> fitnessEvents = fitnessPage.displayListOfFitness();
-        softAssert.assertTrue(
-                driver.getCurrentUrl().contains("/events/fitness-events"),
-                "Fitness category was not selected"
-        );
-        softAssert.assertTrue(
-                fitnessEvents.size() > 0,
-                "No fitness events are displayed"
-        );
+        softAssert.assertTrue(driver.getCurrentUrl().contains("/events/fitness-events"), "Fitness category was not selected");
+        softAssert.assertTrue(fitnessEvents.size() > 0, "No fitness events are displayed");
         LoggerUtil.info("Total Fitness Events: " + fitnessEvents.size());
         int count = 1;
         for (WebElement event : fitnessEvents) {
             String eventName = event.getAttribute("alt");
             if (eventName != null && !eventName.trim().isEmpty()) {
-                System.out.println(count + ". " + eventName);
+                LoggerUtil.info(count + ". " + eventName);
                 count++;
             }
         }

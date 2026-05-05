@@ -18,10 +18,7 @@ public class TC004_MusicEventsCount extends BaseClass {
         int musicEventsCount = musicPage.getDisplayedEventsCount();
         LoggerUtil.info("Music Events Found: " + musicEventsCount);
         ScreenshotUtil.takeScreenshot(driver);
-        softAssert.assertTrue(
-                driver.getCurrentUrl().contains("music"),
-                "FAILURE: Did not navigate to Music Events page"
-        );
+        softAssert.assertTrue(driver.getCurrentUrl().contains("music"), "FAILURE: Did not navigate to Music Events page");
         if (musicEventsCount > 0) {
             LoggerUtil.info("SUCCESS: Music events are displayed.");
         } else {

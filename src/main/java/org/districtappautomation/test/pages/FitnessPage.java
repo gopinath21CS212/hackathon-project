@@ -4,7 +4,6 @@ import org.districtappautomation.test.utility.WaitUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 
 public class FitnessPage {
@@ -24,6 +23,7 @@ public class FitnessPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
     public List<WebElement> displayListOfFitness() {
         WaitUtils.waitForElementToBeClickable(driver, eventsTab).click();
         JavascriptExecutor js = (JavascriptExecutor) driver;

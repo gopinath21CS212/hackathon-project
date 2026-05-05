@@ -9,13 +9,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverFactory {
-
     private static WebDriver driver;
-
     public static void initDriver(String browser) {
-
         switch (browser.toLowerCase()) {
-
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--disable-notifications");
@@ -24,7 +20,6 @@ public class DriverFactory {
 //                chromeOptions.addArguments("--headless=new");
                 driver = new ChromeDriver(chromeOptions);
                 break;
-
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.addPreference("dom.webnotifications.enabled", false);
@@ -33,7 +28,6 @@ public class DriverFactory {
                 firefoxOptions.addArguments("--start-maximized");
                 driver = new FirefoxDriver(firefoxOptions);
                 break;
-
             case "edge":
                 EdgeOptions edgeOptions = new EdgeOptions();
                 edgeOptions.addArguments("--disable-notifications");
@@ -41,7 +35,6 @@ public class DriverFactory {
                 edgeOptions.addArguments("--start-maximized");
                 driver = new EdgeDriver(edgeOptions);
                 break;
-
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browser);
         }

@@ -14,10 +14,7 @@ public class TC002_ValidSignup extends BaseClass {
     public void testValidMobileNumber() {
         SoftAssert softAssert = new SoftAssert();
         SignupPage signupPage = new SignupPage(driver);
-        Object[][] excelData = ExcelUtils.getTestData(
-                "src/main/resources/SignupTestData.xlsx",
-                "MobileNumber"
-        );
+        Object[][] excelData = ExcelUtils.getTestData("src/main/resources/SignupTestData.xlsx", "MobileNumber");
         for (int i = 0; i < excelData.length; i++) {
             String testType = excelData[i][0].toString();
             String mobileNumber = excelData[i][1].toString();
@@ -27,18 +24,10 @@ public class TC002_ValidSignup extends BaseClass {
             signupPage.openSignupModal();
             signupPage.enterNumberAndSubmit(mobileNumber);
             LoggerUtil.info("Waiting for signup flow response for: " + mobileNumber);
-            boolean transitionHappened =
-                    signupPage.isOtpScreenDisplayed()
-                            || signupPage.isVerificationFlowTriggered();
+            boolean transitionHappened = signupPage.isOtpScreenDisplayed() || signupPage.isVerificationFlowTriggered();
             ScreenshotUtil.takeScreenshot(driver);
-            softAssert.assertTrue(
-                    transitionHappened,
-                    "Signup flow did not proceed for valid mobile number: " + mobileNumber
-            );
-            LoggerUtil.info(
-                    "SUCCESS: Signup flow initiated correctly for mobile number: "
-                            + mobileNumber
-            );
+            softAssert.assertTrue(transitionHappened, "Signup flow did not proceed for valid mobile number: " + mobileNumber);
+            LoggerUtil.info("SUCCESS: Signup flow initiated correctly for mobile number: " + mobileNumber);
             signupPage.closeModal();
         }
         softAssert.assertAll();

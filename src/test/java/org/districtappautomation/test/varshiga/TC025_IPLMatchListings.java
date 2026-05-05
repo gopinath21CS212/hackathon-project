@@ -18,7 +18,5 @@ public class TC025_IPLMatchListings extends BaseClass {
         iplPage.printUpcomingMatches();
         ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("All the Upcoming matches were identified successfully");
-
-
     }
 }

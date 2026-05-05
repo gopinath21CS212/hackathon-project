@@ -18,9 +18,7 @@ public class TC014_ExtractMovieLanguagesFromFilter extends BaseClass {
         moviesPage.openLanguageTab();
         List<String> languages = moviesPage.getAvailableLanguages();
         languages.forEach(System.out::println);
-        softAssert.assertFalse(languages.isEmpty(),
-                "No languages extracted from Language filter");
+        softAssert.assertFalse(languages.isEmpty(), "No languages extracted from Language filter");
         LoggerUtil.info("ExtractMovies Test Case Execution Completed");
-
     }
 }

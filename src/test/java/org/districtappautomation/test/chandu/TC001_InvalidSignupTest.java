@@ -14,9 +14,7 @@ public class TC001_InvalidSignupTest extends BaseClass {
     public void testShortMobileNumber() {
         SoftAssert softAssert = new SoftAssert();
         SignupPage signupPage = new SignupPage(driver);
-        Object[][] excelData =  ExcelUtils.getTestData(
-                "src/main/resources/SignupTestData.xlsx",
-                "MobileNumber");
+        Object[][] excelData =  ExcelUtils.getTestData("src/main/resources/SignupTestData.xlsx", "MobileNumber");
         signupPage.openSignupModal();
         for(int i = 0; i < excelData.length; i++){
             if(!("POSITIVE".equalsIgnoreCase(excelData[i][0].toString()))){
@@ -24,10 +22,7 @@ public class TC001_InvalidSignupTest extends BaseClass {
                 String error = signupPage.getErrorText();
                 LoggerUtil.info("Captured Error: "+error);
                 ScreenshotUtil.takeScreenshot(driver);
-                softAssert.assertTrue(
-                        error.toLowerCase().contains("valid"),
-                        "Error message not displayed!"
-                );
+                softAssert.assertTrue(error.toLowerCase().contains("valid"), "Error message not displayed!");
             }
         }
         signupPage.closeModal();

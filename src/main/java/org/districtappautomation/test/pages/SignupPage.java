@@ -8,7 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class SignupPage {
+
     WebDriver driver;
+
     @FindBy(xpath = "//div[contains(@class,'dds-rounded-full') and contains(@class,'dds-flex')]")
     private WebElement profileIcon;
 
@@ -41,13 +43,14 @@ public class SignupPage {
         WebElement input = WaitUtils.waitForElementVisible(driver, phoneInput);
         input.clear();
         input.sendKeys(number);
-
         ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", continueBtn);
     }
+
     public String getErrorText() {
         return WaitUtils.waitForElementVisible(driver, errorMessage).getText();
     }
+
     public boolean isOtpScreenDisplayed() {
         try {
             WaitUtils.waitForElementVisible(driver, otpIndicator);
@@ -60,6 +63,7 @@ public class SignupPage {
     public boolean isVerificationFlowTriggered() {
         return isOtpScreenDisplayed();
     }
+
     public void closeModal() {
         try {
             if (closeBtn.isDisplayed()) {

@@ -8,17 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-import org.testng.Assert;
 import java.util.List;
 
 public class StoresPage {
 
     WebDriver driver;
-
-    @FindBy(xpath = "//a[normalize-space()='Stores']")
-    WebElement storesTab;
 
     @FindBy(xpath = "(//section[contains(.,'Shop by Category')]//a)[3]")
     WebElement thirdCategory;
@@ -34,9 +28,6 @@ public class StoresPage {
 
     @FindBy(xpath = "//h3/following::span[3]")
     WebElement storeAddress;
-
-    @FindBy(xpath = "//span[normalize-space()='Top items in store']")
-    WebElement topItemsHeader;
 
     @FindBy(xpath = "//span[normalize-space()='Top items in store']/following-sibling::div")
     List<WebElement> topItems;
@@ -71,6 +62,7 @@ public class StoresPage {
     public List<WebElement> getStoresNameList() {
         return storesNameList;
     }
+
     public boolean displayFootwearBrandsInYourCity(){
         WaitUtils.waitForElementToBeClickable(driver,storesNameList.get(0));
         if(getStoresNameList().isEmpty()){
@@ -100,15 +92,12 @@ public class StoresPage {
         LoggerUtil.info("======= Store Details =======");
         LoggerUtil.info("Store Name    : " + storeName.getText());
         LoggerUtil.info("Store Address : " + storeAddress.getText());
-        By topItemsHeaderBy =
-                By.xpath("//span[contains(normalize-space(),'Top items')]");
-
+        By topItemsHeaderBy = By.xpath("//span[contains(normalize-space(),'Top items')]");
         List<WebElement> headers = driver.findElements(topItemsHeaderBy);
         if(!driver.getCurrentUrl().contains("/store")) return false;
         if (!headers.isEmpty()) {
             WebElement header = headers.get(0);
-            ((JavascriptExecutor) driver)
-                    .executeScript("arguments[0].scrollIntoView(true);", header);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", header);
             LoggerUtil.info("======= Top Items in Store =======");
             for (WebElement item : topItems) {
                 LoggerUtil.info(" - " + item.getText());
@@ -118,10 +107,12 @@ public class StoresPage {
         }
         return true;
     }
+
     public void selectHomeFurnitureCategory() {
         WaitUtils.waitForElementToBeClickable(driver,homeFurnitureCategory);
         homeFurnitureCategory.click();
     }
+
     public void printAllStoreNames() throws InterruptedException {
         Thread.sleep(3000);
         LoggerUtil.info("======= Stores under Home & Furniture =======");

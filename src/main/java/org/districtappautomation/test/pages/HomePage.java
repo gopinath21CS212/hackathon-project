@@ -40,12 +40,10 @@ public class HomePage {
     @FindBy(xpath = "//a[text()=\"IPL\"]")
     WebElement iPLTab;
 
-
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
 
     public void navigateToEvents() {
         eventsTab.click();
@@ -60,11 +58,9 @@ public class HomePage {
         searchInput.sendKeys(location1);
         WebElement firstResult = WaitUtils.waitForElementToBeClickable(driver, firstResultBy);
         firstResult.click();
-        WebElement selectedLocation1 =
-                WaitUtils.waitForElementVisible(driver, currentLocation);
+        WebElement selectedLocation1 = WaitUtils.waitForElementVisible(driver, currentLocation);
         return validateLocationSelector(location1, selectedLocation1);
     }
-
 
     public boolean validateLocationSelector(String ExpectredLocation, WebElement currentLocation) throws InterruptedException {
         Thread.sleep(1500);
@@ -116,6 +112,4 @@ public class HomePage {
         WaitUtils.waitForUrlContains(driver, "activities");
         return validatePage("activities");
     }
-
 }
-

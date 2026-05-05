@@ -1,13 +1,11 @@
 package org.districtappautomation.test.utility;
 
 import org.apache.poi.ss.usermodel.*;
-
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ExcelUtils {
-
     public static Object[][] getTestData(String filePath, String sheetName) {
         List<Object[]> data = new ArrayList<>();
         DataFormatter formatter = new DataFormatter();
