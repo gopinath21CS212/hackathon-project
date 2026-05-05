@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class TC019_PriceLowToHigh extends BaseClass {
     @Test
-    public void PriceLowToHigh() throws InterruptedException{
+    public void PriceLowToHigh(){
         EventPage eventPage=new EventPage(driver);
         eventPage.priceLowToHigh();
     }

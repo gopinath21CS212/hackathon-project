@@ -11,7 +11,6 @@ public class TC005_SearchPartialEventName extends BaseClass {
 
     @Test
     public void verifySearchUsingSearchBar() {
-
         SoftAssert softAssert = new SoftAssert();
         SearchPage searchPage = new SearchPage(driver);
         LoggerUtil.info("Executing search flow: open → type → search");

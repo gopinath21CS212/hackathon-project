@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class TC024_ValidateStoresFlow extends BaseClass {
 
     @Test
-    public void validateStoreDetailsAndTopItems() throws InterruptedException {
+    public void validateStoreDetailsAndTopItems() {
         StoresPage storesPage = new StoresPage(driver);
         LoggerUtil.info("Successfully Launched the Application");
         storesPage.navigateToStoresPage();

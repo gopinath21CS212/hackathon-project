@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class TC021_DisplayRestaurantDetails extends BaseClass {
 
     @Test
-    public void displayRestaurantDetails() throws InterruptedException {
+    public void displayRestaurantDetails(){
         DiningPage diningPage = new DiningPage(driver);
         LoggerUtil.info("Successfully Launched the Application");
         diningPage.selectRestaurantAndPrintDetails();

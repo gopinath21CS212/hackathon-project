@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class TC025_IPLMatchListings extends BaseClass {
     @Test
-    public void displayIplMatchDetails() throws InterruptedException {
+    public void displayIplMatchDetails(){
         IPLPage iplPage = new IPLPage(driver);
         LoggerUtil.info("Successfully Launched the Application");
         iplPage.navigateToIplPage();

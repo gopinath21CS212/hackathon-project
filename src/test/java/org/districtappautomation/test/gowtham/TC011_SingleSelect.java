@@ -10,7 +10,6 @@ public class TC011_SingleSelect extends BaseClass {
 
     @Test
     public void selectSingleCheckboxAndApplyFilter() throws InterruptedException {
-
         MoviePage moviesPage = new MoviePage(driver);
         moviesPage.clickMovies();
         moviesPage.openFilters();

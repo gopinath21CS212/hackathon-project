@@ -10,7 +10,6 @@ public class TC013_MultipleSelect extends BaseClass {
 
     @Test
     public void multiSelectFilters() throws InterruptedException {
-
         MoviePage moviesPage = new MoviePage(driver);
         moviesPage.clickMovies();
         moviesPage.openFilters();

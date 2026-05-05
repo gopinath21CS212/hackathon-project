@@ -11,7 +11,6 @@ public class TC004_MusicEventsCount extends BaseClass {
 
     @Test
     public void testMusicEventsCount() {
-
         SoftAssert softAssert = new SoftAssert();
         MusicEventsPage musicPage = new MusicEventsPage(driver);
         LoggerUtil.info("Navigating to Events -> Music...");
