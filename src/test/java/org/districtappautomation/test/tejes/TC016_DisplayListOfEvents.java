@@ -10,6 +10,5 @@ public class TC016_DisplayListOfEvents extends BaseClass {
     public void DisplayListOfEvents() throws InterruptedException {
         EventPage eventPage = new EventPage(driver);
         eventPage.displayListOfEvents(softAssert);
-
     }
 }

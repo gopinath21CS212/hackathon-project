@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class TC013_MultipleSelect extends BaseClass {
 
     @Test
-    public void multiSelectFilters() throws InterruptedException {
+    public void multiSelectFilters() {
         MoviePage moviesPage = new MoviePage(driver);
         moviesPage.clickMovies();
         moviesPage.openFilters();

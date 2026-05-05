@@ -93,10 +93,10 @@ public class DiningPage {
         searchBox.click();
     }
 
-    public void selectRestaurantAndPrintDetails() {
+    public boolean selectRestaurantAndPrintDetails() {
         openDiningTabSearchBox();
         WaitUtils.waitForElementToBeClickable(driver, Restaurant).click();
-        Assert.assertTrue(driver.getCurrentUrl().contains("/dining"), "Restaurant page not opened");
+        if(!driver.getCurrentUrl().contains("/dining")) return false;
         WaitUtils.waitForElementVisible(driver, restaurantName);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", restaurantName);
@@ -106,6 +106,7 @@ public class DiningPage {
         System.out.println("Ratings : " + ratingSection.getText());
         System.out.println("Contact : " + contactNumber.getText());
         System.out.println("=================================");
+        return true;
     }
     public void printAboutRestaurantDetails() {
         openDiningTabSearchBox();

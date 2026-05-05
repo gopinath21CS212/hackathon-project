@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class TC012_ClearFilter extends BaseClass {
 
     @Test
-    public void verifyClearFilters() throws InterruptedException {
+    public void verifyClearFilters() {
         MoviePage moviesPage = new MoviePage(driver);
         moviesPage.clickMovies();
         moviesPage.openFilters();

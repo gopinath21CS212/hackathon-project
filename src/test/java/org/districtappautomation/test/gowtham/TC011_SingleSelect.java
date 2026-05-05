@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class TC011_SingleSelect extends BaseClass {
 
     @Test
-    public void selectSingleCheckboxAndApplyFilter() throws InterruptedException {
+    public void selectSingleCheckboxAndApplyFilter() {
         MoviePage moviesPage = new MoviePage(driver);
         moviesPage.clickMovies();
         moviesPage.openFilters();
