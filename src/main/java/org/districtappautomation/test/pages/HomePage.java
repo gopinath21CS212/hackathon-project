@@ -5,10 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-
-import java.util.Objects;
-
 
 public class HomePage {
 
@@ -73,12 +69,10 @@ public class HomePage {
     public boolean validateLocationSelector(String ExpectredLocation, WebElement currentLocation) throws InterruptedException {
         Thread.sleep(1500);
         return ExpectredLocation.equals(currentLocation.getText());
-//        Assert.assertEquals(ExpectredLocation, currentLocation.getText(),"Location Selector is Not Working Properly");
     }
 
     public boolean validatePage(String expectedPage){
         return driver.getCurrentUrl().contains(expectedPage);
-//        Assert.assertTrue(Objects.requireNonNull(driver.getCurrentUrl()).contains(expectedPage),"Event Page Not Found");
     }
 
     public boolean navigateToDiningandValidate(){

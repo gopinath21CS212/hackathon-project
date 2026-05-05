@@ -1,5 +1,6 @@
 package org.districtappautomation.test.pages;
 
+import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -7,9 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-import org.testng.Assert;
 
 import java.util.List;
 
@@ -65,7 +63,7 @@ public class StoresPage {
             return false;
         }
         else{
-            System.out.println("Footwear brands in your city: ");
+            LoggerUtil.info("Footwear brands in your city: ");
             for(WebElement storesName:storesNameList){
                 System.out.println(storesName.getText());
             }
