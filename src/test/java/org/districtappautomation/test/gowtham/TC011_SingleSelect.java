@@ -11,6 +11,7 @@ public class TC011_SingleSelect extends BaseClass {
     @Test
     public void selectSingleCheckboxAndApplyFilter() {
         MoviePage moviesPage = new MoviePage(driver);
+        LoggerUtil.info("Successfully Launched the Application");
         moviesPage.clickMovies();
         moviesPage.openFilters();
         moviesPage.openGenreTab();

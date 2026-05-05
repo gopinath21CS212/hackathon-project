@@ -11,6 +11,7 @@ public class TC013_MultipleSelect extends BaseClass {
     @Test
     public void multiSelectFilters() {
         MoviePage moviesPage = new MoviePage(driver);
+        LoggerUtil.info("Successfully Launched the Application");
         moviesPage.clickMovies();
         moviesPage.openFilters();
         moviesPage.openGenreTab();

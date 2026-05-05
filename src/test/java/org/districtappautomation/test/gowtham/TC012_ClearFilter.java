@@ -10,6 +10,7 @@ public class TC012_ClearFilter extends BaseClass {
     @Test
     public void verifyClearFilters() {
         MoviePage moviesPage = new MoviePage(driver);
+        LoggerUtil.info("Successfully Launched the Application");
         moviesPage.clickMovies();
         moviesPage.openFilters();
         moviesPage.openGenreTab();
