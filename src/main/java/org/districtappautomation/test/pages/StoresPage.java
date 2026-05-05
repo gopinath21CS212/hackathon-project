@@ -52,6 +52,7 @@ public class StoresPage {
     public void navigateToStoresPage() {
         WaitUtils.waitForElementToBeClickable(driver,storesButton);
         storesButton.click();
+        WaitUtils.waitForElementToBeClickable(driver, thirdCategory);
     }
 
     public void navigateToFootwearPage() {
