@@ -8,7 +8,6 @@ public class TC018_ValidateCheckboxes extends BaseClass {
     @Test
     public void ValidateCheckboxes() throws InterruptedException{
         EventPage eventPage=new EventPage(driver);
-        eventPage.checkboxValidation();
+        eventPage.checkboxValidation(softAssert);
     }
-
 }

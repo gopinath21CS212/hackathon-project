@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
@@ -21,23 +22,22 @@ public class SportsPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void displayListOfSports() throws InterruptedException {
+    public void displayListOfSports(SoftAssert softAssert) throws InterruptedException {
+        Thread.sleep(3000);
         eventsTab.click();
         Thread.sleep(3000);
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 800);");
         Thread.sleep(3000);
         sportButton.click();
-        Assert.assertTrue(
+        softAssert.assertTrue(
                 driver.getCurrentUrl().contains("/events/sports-events"),
                 "Sports category was not selected"
         );
-
         List<WebElement> sportsEvents = driver.findElements(
                 By.xpath("//a[contains(@href,'/events/')]//img[@alt]")
         );
-
-        Assert.assertTrue(
+        softAssert.assertTrue(
                 sportsEvents.size() > 0,
                 "No sports events are displayed"
         );
