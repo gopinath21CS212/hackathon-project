@@ -30,6 +30,10 @@ public class ConfigReader {
         return properties.getProperty("url");
     }
 
+    public static String getProperty(String key) {
+        return properties.getProperty(key);
+    }
+
     public static WebDriver getBrowser() {
         if(properties.getProperty("browser").equals("chrome")){
             return new ChromeDriver();
