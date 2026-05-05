@@ -15,7 +15,6 @@ public class TC003_FitnessEventsCount extends BaseClass {
     public void DisplayListOfFitness() {
 
         SoftAssert softAssert = new SoftAssert();
-
         FitnessPage fitnessPage = new FitnessPage(driver);
         List<WebElement> fitnessEvents = fitnessPage.displayListOfFitness();
         softAssert.assertTrue(
