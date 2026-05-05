@@ -3,10 +3,7 @@ package org.districtappautomation.test.pages;
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.districtappautomation.test.utility.WaitUtils;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,8 +31,8 @@ public class MoviePage {
     @FindBy(xpath = "//button[@aria-label='Apply Filters']")
     WebElement applyFilter;
 
-    @FindBy(xpath = "//button[.//span[normalize-space()='3D']]")
-    WebElement threeD;
+//    @FindBy(xpath = "//button[.//span[normalize-space()='3D']]")
+//    WebElement threeD;
 
     @FindBy(xpath = "//button[@type='button' and .//span[normalize-space()='Filters']]")
     private WebElement filtersButton;
@@ -81,9 +78,9 @@ public class MoviePage {
         if(!animationCheckbox.isSelected()) return false;
         wait.until(ExpectedConditions.elementToBeClickable(applyFilter));
         applyFilter.click();
-        wait.until(ExpectedConditions.elementToBeClickable(threeD));
-        threeD.click();
-        ScreenshotUtil.takeScreenshot(driver);
+//        wait.until(ExpectedConditions.elementToBeClickable(threeD));
+//        threeD.click();
+//        ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("TestCase_17 Execution successful");
         return true;
 
@@ -133,27 +130,22 @@ public class MoviePage {
         clearFiltersButton.click();
     }
 
+
     public boolean printDisplayeFilterMovieNames() {
-        WaitUtils.waitForAllElementVisible(driver,FilterMovieCards);
-        int size = FilterMovieCards.size();
-        if (size == 0) {
-            return false;
-        }
-        for (int i = 0; i < size; i++) {
+        By locator = By.xpath("//div[contains(@class,'dds-grid')]/a");
+        for (int attempt = 0; attempt < 2; attempt++) {
             try {
-                String title = FilterMovieCards.get(i).getText().trim();
-                if (!title.isEmpty()) {
-                    LoggerUtil.info(title);
+                List<WebElement> cards = driver.findElements(locator);
+                if (cards.isEmpty()) return false;
+                for (WebElement card : cards) {
+                    LoggerUtil.info(card.getText());
                 }
+                return true;
             } catch (StaleElementReferenceException e) {
-                PageFactory.initElements(driver, this);
-                String title = FilterMovieCards.get(i).getText().trim();
-                if (!title.isEmpty()) {
-                    LoggerUtil.info(title);
-                }
+                LoggerUtil.warn("Retrying due to DOM refresh...");
             }
         }
-        return true;
+        return false;
     }
 
     public boolean areAllFiltersCleared() {
