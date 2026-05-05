@@ -1,6 +1,7 @@
 package org.districtappautomation.test.pages;
 
 import org.districtappautomation.test.utility.WaitUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,8 @@ import java.util.List;
 public class StoresPage {
 
     WebDriver driver;
+    @FindBy(xpath = "//a[normalize-space()='Stores']")
+    WebElement storesTab;
     @FindBy(xpath = "(//section[contains(.,'Shop by Category')]//a)[3]")
     WebElement thirdCategory;
     @FindBy(xpath = "(//a[contains(@href,'/stores/')])[6]")
@@ -33,6 +36,10 @@ public class StoresPage {
     WebElement footwearButton;
     @FindBy(xpath = "//img/following-sibling::div/h5")
     List<WebElement> storesNameList;
+    @FindBy(xpath = "//a[contains(@href,'home-furniture-stores')]")
+    WebElement homeFurnitureCategory;
+    @FindBy(xpath = "//h5")
+    List<WebElement> storeNames;
 
     public StoresPage(WebDriver driver) {
         this.driver = driver;
@@ -82,18 +89,37 @@ public class StoresPage {
         System.out.println("======= Store Details =======");
         System.out.println("Store Name    : " + storeName.getText());
         System.out.println("Store Address : " + storeAddress.getText());
-        System.out.println("=============================");
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", topItemsHeader);
+        By topItemsHeaderBy =
+                By.xpath("//span[contains(normalize-space(),'Top items')]");
 
-        WaitUtils.waitForElementVisible(driver, topItemsHeader);
+        List<WebElement> headers = driver.findElements(topItemsHeaderBy);
 
-        System.out.println("======= Top Items in Store =======");
-
-        for (WebElement item : topItems) {
-            System.out.println(" - " + item.getText());
+        if (!headers.isEmpty()) {
+            WebElement header = headers.get(0);
+            ((JavascriptExecutor) driver)
+                    .executeScript("arguments[0].scrollIntoView(true);", header);
+            System.out.println("======= Top Items in Store =======");
+            for (WebElement item : topItems) {
+                System.out.println(" - " + item.getText());
+            }
+        } else {
+            System.out.println("Top Items section not available");
         }
-        System.out.println("=================================");
+    }
+    public void selectHomeFurnitureCategory() {
+        WaitUtils.waitForElementToBeClickable(driver,homeFurnitureCategory);
+        homeFurnitureCategory.click();
+    }
+    public void printAllStoreNames() throws InterruptedException {
+        Thread.sleep(3000);
+        System.out.println("======= Stores under Home & Furniture =======");
+        for (WebElement store : storeNames) {
+            String name = store.getText().trim();
+            if (!name.isEmpty()) {
+                System.out.println(" - " + name);
+            }
+        }
+        System.out.println("============================================");
     }
 }
