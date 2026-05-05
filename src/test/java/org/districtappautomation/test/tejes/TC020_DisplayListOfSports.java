@@ -9,6 +9,6 @@ public class TC020_DisplayListOfSports extends BaseClass {
     @Test
     public void DisplayListOfSports() throws InterruptedException {
         SportsPage sportPage = new SportsPage(driver);
-        sportPage.displayListOfSports();
+        sportPage.displayListOfSports(softAssert);
     }
 }

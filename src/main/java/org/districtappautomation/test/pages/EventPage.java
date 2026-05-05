@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
@@ -40,30 +41,27 @@ public class EventPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void displayListOfEvents() throws InterruptedException {
+    public void displayListOfEvents(SoftAssert softAssert) throws InterruptedException {
         eventsTab.click();
         Thread.sleep(3000);
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 800);");
         Thread.sleep(2000);
         thisweekend.click();
-        Assert.assertTrue(
+        softAssert.assertTrue(
                 thisweekend.isDisplayed() && thisweekend.isEnabled(),
                 "This Weekend button was not clicked or not active"
         );
-
         int count=1;
         List<WebElement> eventNames = driver.findElements(
                 By.xpath("//a[contains(@href,'/events/')]/div//img")
         );
 
-        Assert.assertTrue(
+        softAssert.assertTrue(
                 eventNames.size() > 0,
                 "No events are displayed in the console"
         );
-
         By eventsLocator = By.xpath("//a[contains(@href,'/events/')]/div//img");
-
         for (int i = 0; i < driver.findElements(eventsLocator).size(); i++) {
             try {
                 WebElement event =
@@ -79,6 +77,7 @@ public class EventPage {
                 System.out.println((i + 1) + ". " + eventName);
             }
         }
+
     }
     public void priceLowToHigh() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -103,7 +102,7 @@ public class EventPage {
         wait.until(ExpectedConditions.elementToBeClickable(applyFilter));
         applyFilter.click();
     }
-    public void checkboxValidation() {
+    public void checkboxValidation(SoftAssert softAssert) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         eventsTab.click();
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -111,26 +110,23 @@ public class EventPage {
         wait.until(ExpectedConditions.elementToBeClickable(thisweekend));
         thisweekend.click();
         ScreenshotUtil.takeScreenshot(driver);
-        Assert.assertTrue(
+        softAssert.assertTrue(
                 thisweekend.isDisplayed() && thisweekend.isEnabled(),
                 "This Weekend button was not clicked or not active"
         );
-
         wait.until(ExpectedConditions.elementToBeClickable(today));
         today.click();
         ScreenshotUtil.takeScreenshot(driver);
-        Assert.assertTrue(
+        softAssert.assertTrue(
                 today.isDisplayed() && today.isEnabled(),
                 "Today button was not clicked or not active"
         );
-
         wait.until(ExpectedConditions.elementToBeClickable(tomorrow));
         tomorrow.click();
         ScreenshotUtil.takeScreenshot(driver);
-        Assert.assertTrue(
+        softAssert.assertTrue(
                 tomorrow.isDisplayed() && tomorrow.isEnabled(),
                 "Tomorrow button was not clicked or not active"
         );
     }
-
 }

@@ -79,7 +79,7 @@ public class MoviePage {
         movieIcon.click();
     }
 
-    public void display3dGenre() {
+    public boolean display3dGenre() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         movieIcon.click();
@@ -90,16 +90,13 @@ public class MoviePage {
         animationContainer.click();
         wait.until(ExpectedConditions.elementToBeSelected(animationCheckbox));
         ScreenshotUtil.takeScreenshot(driver);
-        Assert.assertTrue(
-                animationCheckbox.isSelected(),
-                "Animation checkbox is NOT selected"
-        );
-
+        if(!animationCheckbox.isSelected()) return false;
         wait.until(ExpectedConditions.elementToBeClickable(applyFilter));
         applyFilter.click();
         wait.until(ExpectedConditions.elementToBeClickable(threeD));
         threeD.click();
         ScreenshotUtil.takeScreenshot(driver);
+        return true;
     }
 
 

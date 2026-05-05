@@ -8,6 +8,6 @@ public class TC017_ValidateGenreCheckbox extends BaseClass {
     @Test
     public void DisplayGenre() throws InterruptedException{
         MoviePage moviePage=new MoviePage(driver);
-        moviePage.display3dGenre();
+        softAssert.assertTrue(moviePage.display3dGenre(),"Animation checkbox is NOT selected");
     }
 }
