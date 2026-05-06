@@ -3,9 +3,7 @@ package org.districtappautomation.test.chandu;
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.SearchPage;
 import org.districtappautomation.test.utility.LoggerUtil;
-import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 public class TC005_SearchPartialEventName extends BaseClass {
 

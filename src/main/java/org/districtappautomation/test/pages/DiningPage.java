@@ -63,8 +63,8 @@ public class DiningPage {
         return trendingMoviesList;
     }
 
-    public boolean displayTrendingMoviesList() throws InterruptedException {
-        Thread.sleep(2000);
+    public boolean displayTrendingMoviesList() {
+        WaitUtils.waitForAllElementVisible(driver,trendingMoviesList);
         if(getTrendingMoviesList().isEmpty()){
             return false;
         }

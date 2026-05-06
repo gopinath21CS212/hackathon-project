@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class TC023_StoresHomeFurniture extends BaseClass {
 
     @Test
-    public void validateHomeFurnitureStores() throws InterruptedException {
+    public void validateHomeFurnitureStores() {
         StoresPage storesPage = new StoresPage(driver);
         LoggerUtil.info("Successfully Launched the Application");
         storesPage.navigateToStoresPage();

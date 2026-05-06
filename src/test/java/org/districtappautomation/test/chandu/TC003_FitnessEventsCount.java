@@ -5,7 +5,6 @@ import org.districtappautomation.test.pages.FitnessPage;
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 

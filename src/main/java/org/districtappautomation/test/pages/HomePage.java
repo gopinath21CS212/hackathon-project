@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.Duration;
+
 public class HomePage {
 
     WebDriver driver;
@@ -66,7 +68,7 @@ public class HomePage {
     }
 
     public boolean validateLocationSelector(String ExpectredLocation, WebElement currentLocation) throws InterruptedException {
-        Thread.sleep(1500);
+        Thread.sleep(   2000);
         return ExpectredLocation.equals(currentLocation.getText());
     }
 

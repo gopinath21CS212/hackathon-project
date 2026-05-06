@@ -119,8 +119,8 @@ public class StoresPage {
         homeFurnitureCategory.click();
     }
 
-    public void printAllStoreNames() throws InterruptedException {
-        Thread.sleep(3000);
+    public void printAllStoreNames(){
+        WaitUtils.waitForElementVisible(driver,storesNameList.get(0));
 
         LoggerUtil.info("======= Stores under Home & Furniture =======");
         for (WebElement store : storeNames) {
