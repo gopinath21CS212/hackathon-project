@@ -1,23 +1,29 @@
 package org.districtappautomation.test.utility;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.*;
 
 public class ScreenshotUtil {
-    public static void takeScreenshot(WebDriver driver) {
+
+    public static String takeScreenshot(WebDriver driver, String testName) {
+        if (driver == null) return null;
         try {
-            File dir = new File("screenshots");
-            if (!dir.exists()) dir.mkdirs();
             File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            File dest = new File(dir, "img_" + System.currentTimeMillis() + ".png");
-            FileUtils.copyFile(src, dest);
-            LoggerUtil.info("Screenshot saved: " + dest.getAbsolutePath());
+            String screenshotsDir = System.getProperty("user.dir") + File.separator + "screenshots";
+            Path dirPath = Paths.get(screenshotsDir);
+            if (!Files.exists(dirPath)) {
+                Files.createDirectories(dirPath);
+            }
+            String fileName = testName + ".png";
+            Path dest = dirPath.resolve(fileName);
+            Files.copy(src.toPath(), dest, StandardCopyOption.REPLACE_EXISTING);
+            return dest.toString();
         } catch (IOException e) {
-            e.printStackTrace();
+            return null;
         }
     }
 }
