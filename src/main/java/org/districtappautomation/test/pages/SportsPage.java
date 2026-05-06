@@ -44,6 +44,5 @@ public class SportsPage {
             }
         }
         LoggerUtil.info("TestCase_20 Execution Successful");
-
     }
 }

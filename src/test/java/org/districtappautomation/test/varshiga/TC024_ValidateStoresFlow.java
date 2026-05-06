@@ -13,7 +13,7 @@ public class TC024_ValidateStoresFlow extends BaseClass {
         StoresPage storesPage = new StoresPage(driver);
         LoggerUtil.info("Successfully Launched the Application");
         storesPage.navigateToStoresPage();
-        softAssert.assertTrue(driver.getTitle().contains("stores"),"Not Able to Navigate Store Page");
+        softAssert.assertTrue(driver.getCurrentUrl().contains("stores"),"Not Able to Navigate Store Page");
         storesPage.selectThirdCategory();
         ScreenshotUtil.takeScreenshot(driver);
         storesPage.selectFourthStore();

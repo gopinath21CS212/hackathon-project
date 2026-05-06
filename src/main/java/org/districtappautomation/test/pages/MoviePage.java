@@ -31,9 +31,6 @@ public class MoviePage {
     @FindBy(xpath = "//button[@aria-label='Apply Filters']")
     WebElement applyFilter;
 
-//    @FindBy(xpath = "//button[.//span[normalize-space()='3D']]")
-//    WebElement threeD;
-
     @FindBy(xpath = "//button[@type='button' and .//span[normalize-space()='Filters']]")
     private WebElement filtersButton;
 
@@ -78,12 +75,8 @@ public class MoviePage {
         if(!animationCheckbox.isSelected()) return false;
         wait.until(ExpectedConditions.elementToBeClickable(applyFilter));
         applyFilter.click();
-//        wait.until(ExpectedConditions.elementToBeClickable(threeD));
-//        threeD.click();
-//        ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("TestCase_17 Execution successful");
         return true;
-
     }
 
     public void openFilters() {
@@ -129,7 +122,6 @@ public class MoviePage {
     public void clearAllFilters() {
         clearFiltersButton.click();
     }
-
 
     public boolean printDisplayeFilterMovieNames() {
         By locator = By.xpath("//div[contains(@class,'dds-grid')]/a");

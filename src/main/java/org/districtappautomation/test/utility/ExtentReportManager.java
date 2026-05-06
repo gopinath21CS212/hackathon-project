@@ -12,16 +12,16 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ExtentReportManager implements ITestListener
 {
-    public ExtentSparkReporter sparkReporter;  // UI of the report
-    public ExtentReports extent;  //populate common info on the report
-    public ExtentTest test; // creating test case entries in the report and update status of the test methods
+    public ExtentSparkReporter sparkReporter;
+    public ExtentReports extent;
+    public ExtentTest test;
 
     public void onStart(ITestContext context) {
 
-        sparkReporter=new ExtentSparkReporter(System.getProperty("user.dir")+ "/reports/myReport.html");//specify location of the report
+        sparkReporter=new ExtentSparkReporter(System.getProperty("user.dir")+ "/reports/myReport.html");
 
-        sparkReporter.config().setDocumentTitle("Automation Report"); // Title of report
-        sparkReporter.config().setReportName("Functional Testing"); // name of the report
+        sparkReporter.config().setDocumentTitle("Automation Report");
+        sparkReporter.config().setReportName("Functional Testing");
         sparkReporter.config().setTheme(Theme.DARK);
 
         extent=new ExtentReports();
@@ -29,8 +29,8 @@ public class ExtentReportManager implements ITestListener
     }
 
     public void onTestSuccess(ITestResult result) {
-        test = extent.createTest(result.getName()); // create a new enty in the report
-        test.log(Status.PASS, "Test case PASSED is:" + result.getName()); // update status p/f/s
+        test = extent.createTest(result.getName());
+        test.log(Status.PASS, "Test case PASSED is:" + result.getName());
     }
 
     public void onTestFailure(ITestResult result) {
