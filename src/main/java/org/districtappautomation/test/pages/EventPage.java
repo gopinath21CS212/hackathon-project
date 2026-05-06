@@ -32,6 +32,9 @@ public class EventPage {
     @FindBy(xpath = "//span[normalize-space(text())='Apply Filters']")
     WebElement applyFilter;
 
+    @FindBy(xpath = "//a[contains(@href,'/events/')]/div//img")
+    List<WebElement> eventNames;
+
     public EventPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -49,7 +52,6 @@ public class EventPage {
         if(!(thisweekend.isDisplayed() && thisweekend.isEnabled())) return "This Weekend button was not clicked or not active";
 
         int count=1;
-        List<WebElement> eventNames = driver.findElements(By.xpath("//a[contains(@href,'/events/')]/div//img"));
 
         if(!(eventNames.size()>0)) return "No events are displayed in the console";
         By eventsLocator = By.xpath("//a[contains(@href,'/events/')]/div//img");
