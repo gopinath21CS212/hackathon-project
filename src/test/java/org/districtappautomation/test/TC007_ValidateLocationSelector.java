@@ -1,9 +1,8 @@
-package org.districtappautomation.test.gopinath;
+package org.districtappautomation.test;
 
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.HomePage;
 import org.districtappautomation.test.utility.LoggerUtil;
-import org.districtappautomation.test.utility.WaitUtils;
 import org.testng.annotations.Test;
 
 import java.time.Duration;

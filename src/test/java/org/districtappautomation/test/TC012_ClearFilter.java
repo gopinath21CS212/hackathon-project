@@ -1,4 +1,4 @@
-package org.districtappautomation.test.gowtham;
+package org.districtappautomation.test;
 
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.MoviePage;

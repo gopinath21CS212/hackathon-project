@@ -1,4 +1,4 @@
-package org.districtappautomation.test.chandu;
+package org.districtappautomation.test;
 
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.SearchPage;

@@ -1,5 +1,6 @@
 package org.districtappautomation.test.pages;
 
+import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
+import java.util.List;
 
 public class HomePage {
 
@@ -42,6 +44,12 @@ public class HomePage {
     @FindBy(xpath = "//a[text()=\"IPL\"]")
     WebElement iPLTab;
 
+    @FindBy(xpath = "//span[text()=\"Artists in your District\"]")
+    WebElement artistHeader;
+
+    @FindBy(xpath ="//a/div/div/h5")
+    List<WebElement> artistList;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -68,7 +76,7 @@ public class HomePage {
     }
 
     public boolean validateLocationSelector(String ExpectredLocation, WebElement currentLocation) throws InterruptedException {
-        Thread.sleep(   2000);
+        Thread.sleep(   3000);
         return ExpectredLocation.equals(currentLocation.getText());
     }
 
@@ -117,4 +125,13 @@ public class HomePage {
         WaitUtils.waitForUrlContains(driver, "activities");
         return validatePage("activities");
     }
+
+    public void printArtistInYourCity(){
+        WaitUtils.waitForElementVisible(driver,artistHeader);
+        LoggerUtil.info("Artist List In Your City: ");
+        for(WebElement artist : artistList){
+            LoggerUtil.info(artist.getText());
+        }
+    }
+
 }

@@ -1,4 +1,4 @@
-package org.districtappautomation.test.gopinath;
+package org.districtappautomation.test;
 
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.HomePage;
@@ -10,7 +10,9 @@ public class TC006_NavigateAndValidateEventPage extends BaseClass {
     public void navigateAndValidateEventPage() {
         HomePage homePage = new HomePage(driver);
         LoggerUtil.info("Successfully Launched the Application");
+
         homePage.navigateToEvents();
+        homePage.printArtistInYourCity();
 
         softAssert.assertTrue(homePage.validatePage("events"),"Event Page Not Found");
         LoggerUtil.info("Selected and Validated location Selector Successfully");

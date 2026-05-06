@@ -1,16 +1,15 @@
-package org.districtappautomation.test.tejes;
+package org.districtappautomation.test;
 
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.EventPage;
 import org.testng.annotations.Test;
 
-public class TC016_DisplayListOfEvents extends BaseClass {
-
+public class TC018_ValidateCheckboxes extends BaseClass {
     @Test
-    public void DisplayListOfEvents(){
-        EventPage eventPage = new EventPage(driver);
+    public void ValidateCheckboxes(){
+        EventPage eventPage=new EventPage(driver);
         boolean flag = false;
-        String methodResultMessage = eventPage.displayListOfEvents();
+        String methodResultMessage = eventPage.checkboxValidation();
         if(methodResultMessage.equals("")){
             flag = true;
         }
