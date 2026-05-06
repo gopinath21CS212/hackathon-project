@@ -60,26 +60,21 @@ public class MoviePage {
         movieIcon.click();
     }
 
-    public boolean display3dGenre() {
+    public boolean display3dGenre() throws InterruptedException {
         LoggerUtil.info("TestCase_17 Started");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         JavascriptExecutor js = (JavascriptExecutor) driver;
-
         movieIcon.click();
-        wait.until(ExpectedConditions.elementToBeClickable(filterButton));
+        WaitUtils.waitForElementToBeClickable(driver,filterButton);
 
         js.executeScript("window.scrollBy(0, 800);");
         filterButton.click();
 
-        wait.until(ExpectedConditions.elementToBeClickable(animationContainer));
+        WaitUtils.waitForElementToBeClickable(driver,animationContainer);
         animationContainer.click();
-
-        wait.until(ExpectedConditions.elementToBeSelected(animationCheckbox));
-        ScreenshotUtil.takeScreenshot(driver);
-
         if(!animationCheckbox.isSelected()) return false;
-        wait.until(ExpectedConditions.elementToBeClickable(applyFilter));
+
+        WaitUtils.waitForElementToBeClickable(driver,applyFilter);
         applyFilter.click();
 
         LoggerUtil.info("TestCase_17 Execution successful");
@@ -143,9 +138,7 @@ public class MoviePage {
                 }
                 return true;
             } catch (StaleElementReferenceException e) {
-
                 LoggerUtil.warn("Retrying due to DOM refresh...");
-
             }
         }
         return false;

@@ -12,11 +12,11 @@ public class TC025_IPLMatchListings extends BaseClass {
         IPLPage iplPage = new IPLPage(driver);
         LoggerUtil.info("Successfully Launched the Application");
         iplPage.navigateToIplPage();
+
         softAssert.assertTrue(driver.getCurrentUrl().contains("ipl-ticket-booking"),"Not Able to Navigate IPL Page");
+
         iplPage.printAvailableTickets();
-        ScreenshotUtil.takeScreenshot(driver);
         iplPage.printUpcomingMatches();
-        ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("All the Upcoming matches were identified successfully");
     }
 }

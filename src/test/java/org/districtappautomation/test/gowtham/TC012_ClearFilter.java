@@ -18,6 +18,7 @@ public class TC012_ClearFilter extends BaseClass {
         moviesPage.applyFilters();
         moviesPage.openFilters();
         moviesPage.clearAllFilters();
+
         softAssert.assertTrue(moviesPage.areAllFiltersCleared(),"Filters are NOT cleared");
         LoggerUtil.info("ClearFilter Test Case Execution Completed");
     }

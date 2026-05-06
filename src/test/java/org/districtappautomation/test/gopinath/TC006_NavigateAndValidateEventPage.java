@@ -11,10 +11,9 @@ public class TC006_NavigateAndValidateEventPage extends BaseClass {
     public void navigateAndValidateEventPage() {
         HomePage homePage = new HomePage(driver);
         LoggerUtil.info("Successfully Launched the Application");
-        ScreenshotUtil.takeScreenshot(driver);
         homePage.navigateToEvents();
+
         softAssert.assertTrue(homePage.validatePage("events"),"Event Page Not Found");
-        ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("Selected and Validated location Selector Successfully");
     }
 }

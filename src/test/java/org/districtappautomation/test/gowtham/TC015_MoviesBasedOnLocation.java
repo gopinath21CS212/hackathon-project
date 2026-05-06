@@ -15,6 +15,7 @@ public class TC015_MoviesBasedOnLocation extends BaseClass {
         LoggerUtil.info("Successfully Launched the Application");
         moviesPage.clickMovies();
         homePage.changeLocationAndValidate("Chennai");
+
         softAssert.assertTrue(moviesPage.printDisplayeFilterMovieNames(), "FAIL: No movies were found in this Location!");
         LoggerUtil.info("Extracted Movies From Location Test Case Execution Completed");
     }

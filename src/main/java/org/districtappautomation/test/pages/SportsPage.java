@@ -1,6 +1,7 @@
 package org.districtappautomation.test.pages;
 
 import org.districtappautomation.test.utility.LoggerUtil;
+import org.districtappautomation.test.utility.WaitUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -25,9 +26,8 @@ public class SportsPage {
     public void displayListOfSports(SoftAssert softAssert) throws InterruptedException {
         LoggerUtil.info("TestCase_20 Started");
 
-        Thread.sleep(3000);
+        WaitUtils.waitForElementToBeClickable(driver,eventsTab);
         eventsTab.click();
-        Thread.sleep(3000);
 
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 800);");

@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class TC017_ValidateGenreCheckbox extends BaseClass {
     @Test
-    public void DisplayGenre(){
+    public void DisplayGenre() throws InterruptedException {
         MoviePage moviePage=new MoviePage(driver);
         softAssert.assertTrue(moviePage.display3dGenre(),"Animation checkbox is NOT selected");
     }

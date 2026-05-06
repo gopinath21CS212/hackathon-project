@@ -2,6 +2,7 @@ package org.districtappautomation.test.pages;
 
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.districtappautomation.test.utility.ScreenshotUtil;
+import org.districtappautomation.test.utility.WaitUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -43,13 +44,11 @@ public class EventPage {
 
     public void displayListOfEvents(SoftAssert softAssert) throws InterruptedException {
         LoggerUtil.info("TestCase_16 Started");
-
         eventsTab.click();
-        Thread.sleep(3000);
 
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 800);");
-        Thread.sleep(2000);
+        WaitUtils.waitForElementToBeClickable(driver,thisweekend);
         thisweekend.click();
 
         softAssert.assertTrue(thisweekend.isDisplayed() && thisweekend.isEnabled(), "This Weekend button was not clicked or not active");
@@ -78,22 +77,19 @@ public class EventPage {
     public void priceLowToHigh(SoftAssert softAssert) {
         LoggerUtil.info("TestCase_19 Started");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         eventsTab.click();
         js.executeScript("window.scrollBy(0, 800);");
 
-        wait.until(ExpectedConditions.elementToBeClickable(filterButton));
+        WaitUtils.waitForElementToBeClickable(driver,filterButton);
         filterButton.click();
 
-        wait.until(ExpectedConditions.elementToBeClickable(filterClick));
+        WaitUtils.waitForElementToBeClickable(driver,filterClick);
         filterClick.click();
-
-        ScreenshotUtil.takeScreenshot(driver);
-        WebElement lowToHighRadio = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@role='radio' and @aria-label='Price : Low to High']")));
+        WebElement lowToHighRadio = WaitUtils.waitPresenceOfElementLocated(driver, By.xpath("//span[@role='radio' and @aria-label='Price : Low to High']"));
 
         softAssert.assertEquals(lowToHighRadio.getAttribute("aria-checked"), "true", "Price Low to High radio button is NOT selected");
-        wait.until(ExpectedConditions.elementToBeClickable(applyFilter));
+        WaitUtils.waitForElementToBeClickable(driver,applyFilter);
         applyFilter.click();
 
         LoggerUtil.info("TestCase_19 Execution Successful");
@@ -102,24 +98,21 @@ public class EventPage {
     public void checkboxValidation(SoftAssert softAssert) {
         LoggerUtil.info("TestCase_18 Started");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WaitUtils.waitForElementVisible(driver,eventsTab);
         eventsTab.click();
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 1000);");
-        wait.until(ExpectedConditions.elementToBeClickable(thisweekend));
+        WaitUtils.waitForElementToBeClickable(driver,thisweekend);
         thisweekend.click();
-        ScreenshotUtil.takeScreenshot(driver);
 
         softAssert.assertTrue(thisweekend.isDisplayed() && thisweekend.isEnabled(), "This Weekend button was not clicked or not active");
-        wait.until(ExpectedConditions.elementToBeClickable(today));
+        WaitUtils.waitForElementToBeClickable(driver,today);
         today.click();
-        ScreenshotUtil.takeScreenshot(driver);
 
         softAssert.assertTrue(today.isDisplayed() && today.isEnabled(), "Today button was not clicked or not active");
-        wait.until(ExpectedConditions.elementToBeClickable(tomorrow));
+        WaitUtils.waitForElementToBeClickable(driver,tomorrow);
         tomorrow.click();
-        ScreenshotUtil.takeScreenshot(driver);
 
         softAssert.assertTrue(tomorrow.isDisplayed() && tomorrow.isEnabled(), "Tomorrow button was not clicked or not active");
 
