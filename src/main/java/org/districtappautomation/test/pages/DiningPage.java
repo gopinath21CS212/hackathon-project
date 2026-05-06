@@ -85,10 +85,13 @@ public class DiningPage {
     public boolean selectRestaurantAndPrintDetails() {
         openDiningTabSearchBox();
         WaitUtils.waitForElementToBeClickable(driver, Restaurant).click();
+
         if(!driver.getCurrentUrl().contains("/dining")) return false;
         WaitUtils.waitForElementVisible(driver, restaurantName);
+
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", restaurantName);
+
         LoggerUtil.info("======= Restaurant Details =======");
         LoggerUtil.info("Name : " + restaurantName.getText());
         LoggerUtil.info("Address : " + address.getText());
@@ -101,17 +104,22 @@ public class DiningPage {
     public boolean printAboutRestaurantDetails() {
         openDiningTabSearchBox();
         WaitUtils.waitForElementToBeClickable(driver, Restaurant).click();
+
         if(!driver.getCurrentUrl().contains("/dining")) return false;
         WaitUtils.waitForElementVisible(driver, aboutHeader);
+
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", aboutHeader);
+
         LoggerUtil.info("======= About the Restaurant =======");
         LoggerUtil.info("Cost         : " + cost.getText());
         LoggerUtil.info("Cuisines     : " + cuisines.getText());
         LoggerUtil.info("Number of Available Facilities : " + facilities.size());
+
         for (WebElement facility : facilities) {
             LoggerUtil.info(" - " + facility.getText());
         }
+
         LoggerUtil.info("===================================");
         return true;
     }
