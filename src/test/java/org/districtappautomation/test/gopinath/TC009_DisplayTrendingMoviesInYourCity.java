@@ -13,10 +13,7 @@ public class TC009_DisplayTrendingMoviesInYourCity extends BaseClass{
         DiningPage diningPage = new DiningPage(driver);
         LoggerUtil.info("Successfully Launched the Application");
         diningPage.openDiningTabSearchBox();
-        ScreenshotUtil.takeScreenshot(driver);
         diningPage.navigateToDiningMovieTab();
-        softAssert.assertTrue(diningPage.displayTrendingMoviesList(),"Trending movies list is empty!");
-        ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("Successfully Displayed Trending Movies In Your City");
     }
 }

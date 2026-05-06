@@ -60,21 +60,23 @@ public class MoviePage {
         movieIcon.click();
     }
 
-    public boolean display3dGenre() {
+    public boolean display3dGenre() throws InterruptedException {
         LoggerUtil.info("TestCase_17 Started");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
         JavascriptExecutor js = (JavascriptExecutor) driver;
         movieIcon.click();
-        wait.until(ExpectedConditions.elementToBeClickable(filterButton));
+        WaitUtils.waitForElementToBeClickable(driver,filterButton);
+
         js.executeScript("window.scrollBy(0, 800);");
         filterButton.click();
-        wait.until(ExpectedConditions.elementToBeClickable(animationContainer));
+
+        WaitUtils.waitForElementToBeClickable(driver,animationContainer);
         animationContainer.click();
-        wait.until(ExpectedConditions.elementToBeSelected(animationCheckbox));
-        ScreenshotUtil.takeScreenshot(driver);
         if(!animationCheckbox.isSelected()) return false;
-        wait.until(ExpectedConditions.elementToBeClickable(applyFilter));
+
+        WaitUtils.waitForElementToBeClickable(driver,applyFilter);
         applyFilter.click();
+
         LoggerUtil.info("TestCase_17 Execution successful");
         return true;
     }
@@ -94,6 +96,7 @@ public class MoviePage {
 
     public List<String> getAvailableLanguages() {
         List<String> languages = new ArrayList<>();
+
         for (WebElement lang : allFilterOptions) {
             String text = lang.getText().trim();
             if (!text.isEmpty()) {
@@ -125,6 +128,7 @@ public class MoviePage {
 
     public boolean printDisplayeFilterMovieNames() {
         By locator = By.xpath("//div[contains(@class,'dds-grid')]/a");
+
         for (int attempt = 0; attempt < 2; attempt++) {
             try {
                 List<WebElement> cards = driver.findElements(locator);

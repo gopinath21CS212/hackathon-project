@@ -1,6 +1,7 @@
 package org.districtappautomation.test.pages;
 
 import org.districtappautomation.test.utility.LoggerUtil;
+import org.districtappautomation.test.utility.WaitUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,17 +25,23 @@ public class SportsPage {
 
     public void displayListOfSports(SoftAssert softAssert) throws InterruptedException {
         LoggerUtil.info("TestCase_20 Started");
-        Thread.sleep(3000);
+
+        WaitUtils.waitForElementToBeClickable(driver,eventsTab);
         eventsTab.click();
-        Thread.sleep(3000);
+
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 800);");
         Thread.sleep(3000);
         sportButton.click();
+
         softAssert.assertTrue(driver.getCurrentUrl().contains("/events/sports-events"), "Sports category was not selected");
+
         List<WebElement> sportsEvents = driver.findElements(By.xpath("//a[contains(@href,'/events/')]//img[@alt]"));
+
         softAssert.assertTrue(sportsEvents.size() > 0, "No sports events are displayed");
+
         LoggerUtil.info("Total Sports Events: " + sportsEvents.size());
+
         int count = 1;
         for (WebElement event : sportsEvents) {
             String eventName = event.getAttribute("alt");
@@ -43,6 +50,8 @@ public class SportsPage {
                 count++;
             }
         }
+
         LoggerUtil.info("TestCase_20 Execution Successful");
+
     }
 }

@@ -28,8 +28,10 @@ public class MusicEventsPage {
 
     public void navigateToMusicEvents() {
         WaitUtils.waitForElementToBeClickable(driver, eventsTab).click();
+
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,600)");
+
         WaitUtils.waitForElementToBeClickable(driver, musicCategory).click();
     }
 

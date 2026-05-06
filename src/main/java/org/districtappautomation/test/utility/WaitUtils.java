@@ -1,5 +1,6 @@
 package org.districtappautomation.test.utility;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,5 +30,9 @@ public class WaitUtils {
 
     public static boolean waitForUrlContains(WebDriver driver, String partialUrl) {
         return getWait(driver).until(ExpectedConditions.urlContains(partialUrl));
+    }
+
+    public static WebElement waitPresenceOfElementLocated(WebDriver driver, By partialUrl) {
+        return getWait(driver).until(ExpectedConditions.presenceOfElementLocated(partialUrl));
     }
 }

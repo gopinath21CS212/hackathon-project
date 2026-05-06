@@ -12,10 +12,10 @@ public class TC007_ValidateLocationSelector extends BaseClass {
         HomePage homePage = new HomePage(driver);
         LoggerUtil.info("Successfully Launched the Application");
         Thread.sleep(4000);
+
         softAssert.assertTrue(homePage.changeLocationAndValidate("Chennai"),"Location Selector is Not Working Properly");
-        ScreenshotUtil.takeScreenshot(driver);
+
         softAssert.assertTrue(homePage.changeLocationAndValidate("Bangalore"),"Location Selector is Not Working Properly");
-        ScreenshotUtil.takeScreenshot(driver);
         LoggerUtil.info("Navigated and Validated Event Page Successfully");
     }
 }

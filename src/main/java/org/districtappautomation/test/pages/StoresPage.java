@@ -66,6 +66,7 @@ public class StoresPage {
 
     public boolean displayFootwearBrandsInYourCity(){
         WaitUtils.waitForElementToBeClickable(driver,storesNameList.get(0));
+
         if(getStoresNameList().isEmpty()){
             return false;
         }
@@ -90,12 +91,16 @@ public class StoresPage {
 
     public boolean printStoreDetailsAndTopItems() {
         WaitUtils.waitForElementVisible(driver, storeName);
+
         LoggerUtil.info("======= Store Details =======");
         LoggerUtil.info("Store Name    : " + storeName.getText());
         LoggerUtil.info("Store Address : " + storeAddress.getText());
+
         By topItemsHeaderBy = By.xpath("//span[contains(normalize-space(),'Top items')]");
+
         List<WebElement> headers = driver.findElements(topItemsHeaderBy);
         if(!driver.getCurrentUrl().contains("/store")) return false;
+
         if (!headers.isEmpty()) {
             WebElement header = headers.get(0);
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", header);
@@ -116,6 +121,7 @@ public class StoresPage {
 
     public void printAllStoreNames() throws InterruptedException {
         Thread.sleep(3000);
+
         LoggerUtil.info("======= Stores under Home & Furniture =======");
         for (WebElement store : storeNames) {
             String name = store.getText().trim();

@@ -19,6 +19,7 @@ public class TC013_MultipleSelect extends BaseClass {
         moviesPage.openLanguageTab();
         moviesPage.selectFilterOptions("Tamil", "Hindi", "English");
         moviesPage.applyFilters();
+
         softAssert.assertTrue(moviesPage.printDisplayeFilterMovieNames(),"Filter Not Working Properly");
         LoggerUtil.info("MultipleSelect Test Case Execution Completed");
     }
