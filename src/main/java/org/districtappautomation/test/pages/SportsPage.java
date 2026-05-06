@@ -5,7 +5,6 @@ import org.districtappautomation.test.utility.WaitUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.asserts.SoftAssert;
 import java.util.List;
 
 public class SportsPage {
@@ -18,12 +17,15 @@ public class SportsPage {
     @FindBy(xpath ="//a[contains(@href,'/events/sports-events')]")
     WebElement sportButton;
 
+    @FindBy(xpath ="//a[contains(@href,'/events/')]//img[@alt]")
+    List<WebElement> sportsEvents;
+
     public SportsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public void displayListOfSports(SoftAssert softAssert) throws InterruptedException {
+    public String displayListOfSports() {
         LoggerUtil.info("TestCase_20 Started");
 
         WaitUtils.waitForElementToBeClickable(driver,eventsTab);
@@ -31,15 +33,16 @@ public class SportsPage {
 
         JavascriptExecutor js=(JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 800);");
-        Thread.sleep(3000);
+        WaitUtils.waitForElementToBeClickable(driver,sportButton);
         sportButton.click();
 
-        softAssert.assertTrue(driver.getCurrentUrl().contains("/events/sports-events"), "Sports category was not selected");
+        if(!driver.getCurrentUrl().contains("/events/sports-events")){
+            return "Sports category was not selected";
+        }
 
-        List<WebElement> sportsEvents = driver.findElements(By.xpath("//a[contains(@href,'/events/')]//img[@alt]"));
-
-        softAssert.assertTrue(sportsEvents.size() > 0, "No sports events are displayed");
-
+        if(!(sportsEvents.size() > 0)){
+            return "No sports events are displayed";
+        }
         LoggerUtil.info("Total Sports Events: " + sportsEvents.size());
 
         int count = 1;
@@ -52,6 +55,6 @@ public class SportsPage {
         }
 
         LoggerUtil.info("TestCase_20 Execution Successful");
-
+        return "";
     }
 }

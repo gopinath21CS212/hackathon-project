@@ -8,6 +8,11 @@ public class TC018_ValidateCheckboxes extends BaseClass {
     @Test
     public void ValidateCheckboxes(){
         EventPage eventPage=new EventPage(driver);
-        eventPage.checkboxValidation(softAssert);
+        boolean flag = false;
+        String methodResultMessage = eventPage.checkboxValidation();
+        if(methodResultMessage.equals("")){
+            flag = true;
+        }
+        softAssert.assertTrue(flag,methodResultMessage);
     }
 }

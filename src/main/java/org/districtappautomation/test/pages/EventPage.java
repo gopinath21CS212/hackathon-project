@@ -1,15 +1,10 @@
 package org.districtappautomation.test.pages;
 
 import org.districtappautomation.test.utility.LoggerUtil;
-import org.districtappautomation.test.utility.ScreenshotUtil;
 import org.districtappautomation.test.utility.WaitUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
-import java.time.Duration;
 import java.util.List;
 
 public class EventPage {
@@ -42,7 +37,7 @@ public class EventPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void displayListOfEvents(SoftAssert softAssert) throws InterruptedException {
+    public String displayListOfEvents() {
         LoggerUtil.info("TestCase_16 Started");
         eventsTab.click();
 
@@ -51,12 +46,12 @@ public class EventPage {
         WaitUtils.waitForElementToBeClickable(driver,thisweekend);
         thisweekend.click();
 
-        softAssert.assertTrue(thisweekend.isDisplayed() && thisweekend.isEnabled(), "This Weekend button was not clicked or not active");
+        if(!(thisweekend.isDisplayed() && thisweekend.isEnabled())) return "This Weekend button was not clicked or not active";
 
         int count=1;
         List<WebElement> eventNames = driver.findElements(By.xpath("//a[contains(@href,'/events/')]/div//img"));
 
-        softAssert.assertTrue(eventNames.size() > 0, "No events are displayed in the console");
+        if(!(eventNames.size()>0)) return "No events are displayed in the console";
         By eventsLocator = By.xpath("//a[contains(@href,'/events/')]/div//img");
         for (int i = 0; i < driver.findElements(eventsLocator).size(); i++) {
             try {
@@ -72,9 +67,10 @@ public class EventPage {
             }
         }
         LoggerUtil.info("TestCase_16 Execution Successful");
+        return "";
     }
 
-    public void priceLowToHigh(SoftAssert softAssert) {
+    public String priceLowToHigh() {
         LoggerUtil.info("TestCase_19 Started");
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -88,16 +84,18 @@ public class EventPage {
         filterClick.click();
         WebElement lowToHighRadio = WaitUtils.waitPresenceOfElementLocated(driver, By.xpath("//span[@role='radio' and @aria-label='Price : Low to High']"));
 
-        softAssert.assertEquals(lowToHighRadio.getAttribute("aria-checked"), "true", "Price Low to High radio button is NOT selected");
+        if(!lowToHighRadio.getAttribute("aria-checked").equals("true")){
+            return "Price Low to High radio button is NOT selected";
+        }
         WaitUtils.waitForElementToBeClickable(driver,applyFilter);
         applyFilter.click();
 
         LoggerUtil.info("TestCase_19 Execution Successful");
+        return "";
     }
 
-    public void checkboxValidation(SoftAssert softAssert) {
+    public String checkboxValidation() {
         LoggerUtil.info("TestCase_18 Started");
-
         WaitUtils.waitForElementVisible(driver,eventsTab);
         eventsTab.click();
 
@@ -106,16 +104,22 @@ public class EventPage {
         WaitUtils.waitForElementToBeClickable(driver,thisweekend);
         thisweekend.click();
 
-        softAssert.assertTrue(thisweekend.isDisplayed() && thisweekend.isEnabled(), "This Weekend button was not clicked or not active");
+        if(!(thisweekend.isDisplayed() && thisweekend.isEnabled())){
+            return "This Weekend button was not clicked or not active";
+        }
         WaitUtils.waitForElementToBeClickable(driver,today);
         today.click();
 
-        softAssert.assertTrue(today.isDisplayed() && today.isEnabled(), "Today button was not clicked or not active");
+        if(!(today.isDisplayed() && today.isEnabled())){
+            return "Today button was not clicked or not active";
+        }
         WaitUtils.waitForElementToBeClickable(driver,tomorrow);
         tomorrow.click();
 
-        softAssert.assertTrue(tomorrow.isDisplayed() && tomorrow.isEnabled(), "Tomorrow button was not clicked or not active");
-
+        if(!(tomorrow.isDisplayed() && tomorrow.isEnabled())){
+            return "Tomorrow button was not clicked or not active";
+        }
         LoggerUtil.info("TestCase_18 Execution Successful");
+        return "";
     }
 }

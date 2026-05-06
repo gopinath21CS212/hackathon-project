@@ -7,8 +7,13 @@ import org.testng.annotations.Test;
 public class TC016_DisplayListOfEvents extends BaseClass {
 
     @Test
-    public void DisplayListOfEvents() throws InterruptedException {
+    public void DisplayListOfEvents(){
         EventPage eventPage = new EventPage(driver);
-        eventPage.displayListOfEvents(softAssert);
+        boolean flag = false;
+        String methodResultMessage = eventPage.displayListOfEvents();
+        if(methodResultMessage.equals("")){
+            flag = true;
+        }
+        softAssert.assertTrue(flag,methodResultMessage);
     }
 }

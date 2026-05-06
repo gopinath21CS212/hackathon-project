@@ -39,10 +39,10 @@ public class BaseClass {
                     ScreenshotUtil.takeScreenshot(driver, testName + "_PASSED");
                     LoggerUtil.info("Test case passed.");
                 }
-                LoggerUtil.info("Screenshot captured for test: {} "+testName);
+                LoggerUtil.info("Screenshot captured for test: "+testName);
             }
         } catch (Exception e) {
-            LoggerUtil.error("Error while taking screenshot: {} "+e.getMessage());
+            LoggerUtil.error("Error while taking screenshot: "+e.getMessage());
         } finally {
             if (driver != null) {
                 LoggerUtil.info("Closing the browser");

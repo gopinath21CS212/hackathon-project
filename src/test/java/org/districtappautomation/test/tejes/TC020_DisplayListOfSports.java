@@ -9,6 +9,11 @@ public class TC020_DisplayListOfSports extends BaseClass {
     @Test
     public void DisplayListOfSports() throws InterruptedException {
         SportsPage sportPage = new SportsPage(driver);
-        sportPage.displayListOfSports(softAssert);
+        boolean flag = false;
+        String methodResultMessage = sportPage.displayListOfSports();
+        if(methodResultMessage.equals("")){
+            flag = true;
+        }
+        softAssert.assertTrue(flag,methodResultMessage);
     }
 }

@@ -8,6 +8,11 @@ public class TC019_PriceLowToHigh extends BaseClass {
     @Test
     public void PriceLowToHigh(){
         EventPage eventPage=new EventPage(driver);
-        eventPage.priceLowToHigh(softAssert);
+        boolean flag = false;
+        String methodResultMessage = eventPage.priceLowToHigh();
+        if(methodResultMessage.equals("")){
+            flag = true;
+        }
+        softAssert.assertTrue(flag,methodResultMessage);
     }
 }
