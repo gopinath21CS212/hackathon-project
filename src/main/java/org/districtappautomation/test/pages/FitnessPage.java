@@ -16,7 +16,7 @@ public class FitnessPage {
     @FindBy(xpath = "//a[contains(@href,'/events/fitness-events')]")
     WebElement fitnessButton;
 
-    @FindBy(xpath = "//div[contains(@class,'dds-grid dds-gap-x-3 md:dds-gap-x-4')]")
+    @FindBy(xpath = "//div[contains(@class,'dds-justify-items-center lg:dds-justify-items-start')]")
     List<WebElement> fitnessEvents;
 
     public FitnessPage(WebDriver driver) {
