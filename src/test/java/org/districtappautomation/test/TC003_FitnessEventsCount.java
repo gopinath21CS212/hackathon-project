@@ -2,17 +2,23 @@ package org.districtappautomation.test;
 
 import org.districtappautomation.test.baseclass.BaseClass;
 import org.districtappautomation.test.pages.FitnessPage;
+import org.districtappautomation.test.pages.HomePage;
 import org.districtappautomation.test.utility.LoggerUtil;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.List;
 
 public class TC003_FitnessEventsCount extends BaseClass {
 
     @Test
-    public void DisplayListOfFitness() {
+    public void DisplayListOfFitness() throws InterruptedException {
         FitnessPage fitnessPage = new FitnessPage(driver);
+        HomePage homePage = new HomePage(driver);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        softAssert.assertTrue(homePage.changeLocationAndValidate("Bangalore"),"Location Selector is Not Working Properly");
         List<WebElement> fitnessEvents = fitnessPage.displayListOfFitness();
 
         softAssert.assertTrue(driver.getCurrentUrl().contains("/events/fitness-events"), "Fitness category was not selected");
