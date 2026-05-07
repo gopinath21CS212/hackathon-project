@@ -17,7 +17,7 @@ public class TC002_ValidSignup extends BaseClass {
             String testType = excelData[i][0].toString();
             String mobileNumber = excelData[i][1].toString();
             if (!"POSITIVE".equalsIgnoreCase(testType)) {
-                continue; // skip non-positive rows
+                continue;
             }
             signupPage.openSignupModal();
             signupPage.enterNumberAndSubmit(mobileNumber);

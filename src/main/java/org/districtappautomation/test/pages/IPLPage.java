@@ -43,7 +43,6 @@ public class IPLPage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ticketsOnSaleHeader);
 
         WaitUtils.waitForAllElementVisible(driver,availableTicketMatches);
-
         LoggerUtil.info("======= Available Tickets =======");
 
         for (WebElement match : availableTicketMatches) {
@@ -61,11 +60,9 @@ public class IPLPage {
     public void printUpcomingMatches() {
         WaitUtils.waitForElementToBeClickable(driver,upcomingHeader);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", upcomingHeader);
-
         WaitUtils.waitForAllElementVisible(driver,upcomingMatches);
 
         LoggerUtil.info("======= Upcoming Matches =======");
-
         for (WebElement match : upcomingMatches) {
             LoggerUtil.info(
                     match.getText()

@@ -133,5 +133,4 @@ public class HomePage {
             LoggerUtil.info(artist.getText());
         }
     }
-
 }
