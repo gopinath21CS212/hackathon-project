@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class TC020_DisplayListOfSports extends BaseClass {
 
     @Test
-    public void DisplayListOfSports() throws InterruptedException {
+    public void DisplayListOfSports() {
         SportsPage sportPage = new SportsPage(driver);
         boolean flag = false;
         String methodResultMessage = sportPage.displayListOfSports();
